@@ -16,12 +16,12 @@ logger = logging.getLogger("main_script")
 
 # PCR-GLOBWB results: model output directory, 
 pcrglobwb_output = {}
-pcrglobwb_output["folder"]               = "/scratch-shared/edwinhs/05min_runs_27_march_2015/multi_cores_natural/global/netcdf/" # "/projects/wtrcycle/users/edwinhs/05min_runs_28_november_2014/multi_cores_non_natural_1960_to_2010/global/" # "/scratch/edwin/05_arcmin_runs/2014_11_28/multi_cores_non_natural_1960_to_2010/global/" # "/scratch/edwin/IWMI_run_20_nov/without_fossil_limit_with_pumping_limit_CRU/netcdf/"
+pcrglobwb_output["folder"]               = "/scratch-shared/edwinhs/05min_runs_27_march_2015/multi_cores_non-natural/global/netcdf/" # 
 pcrglobwb_output["netcdf_file_name"]     = "discharge_monthAvg_output.nc" 
 pcrglobwb_output["netcdf_variable_name"] = "discharge" 
 
 # output directory storing analysis results (results from this script)
-globalAnalysisOutputDir = "/scratch-shared/edwinhs/05min_runs_27_march_2015/multi_cores_natural/global/analysis/monthly_discharge/" # "/projects/wtrcycle/users/edwinhs/05min_runs_28_november_2014/multi_cores_non_natural_1960_to_2010/analysis/monthly_discharge/" # "/scratch/edwin/IWMI_run_20_nov/without_fossil_limit_with_pumping_limit_CRU/analysis/monthly_discharge/"
+globalAnalysisOutputDir = "/scratch-shared/edwinhs/05min_runs_27_march_2015/multi_cores_non-natural/global/analysis/monthly_discharge/" # 
 cleanOutputDir          = True # option to clean analysisOutputDir 		
 
 # optional: PCR-GLOBWB output and analysis output folders are given in the system argument

@@ -16,7 +16,7 @@ logger = logging.getLogger("main_script")
 
 # PCR-GLOBWB results: model output directory, 
 pcrglobwb_output = {}
-pcrglobwb_output["folder"]               = "/scratch-shared/edwinhs/05min_runs_27_march_2015/multi_cores_non-natural/global/netcdf/" # 
+pcrglobwb_output["folder"]               = "/scratch-shared/edwinhs/05min_runs_01_april_2015/global/netcdf/" # 
 pcrglobwb_output["netcdf_file_name"]     = "discharge_monthAvg_output.nc" 
 pcrglobwb_output["netcdf_variable_name"] = "discharge" 
 

@@ -21,7 +21,7 @@ pcrglobwb_output["netcdf_file_name"]     = "discharge_monthAvg_output.nc"
 pcrglobwb_output["netcdf_variable_name"] = "discharge" 
 
 # output directory storing analysis results (results from this script)
-globalAnalysisOutputDir = "/scratch-shared/edwinhs/05min_runs_27_march_2015/multi_cores_non-natural/global/analysis/monthly_discharge/" # 
+globalAnalysisOutputDir = "/scratch-shared/edwinhs/05min_runs_01_april_2015/global/analysis/monthly_discharge/" # 
 cleanOutputDir          = True # option to clean analysisOutputDir 		
 
 # optional: PCR-GLOBWB output and analysis output folders are given in the system argument

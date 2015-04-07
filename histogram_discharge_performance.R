@@ -90,10 +90,10 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
 
 # folder where the analysis summaries are saved:
 # - this folder contains a number of sub-folders (18 per 10 June 2014)
-folder_of_analysis_summaries = "/scratch/edwin/05_arcmin_runs/2014_11_28/multi_cores_non_natural_1960_to_2010/analysis/monthly_discharge/"
+folder_of_analysis_summaries = "/scratch/edwin/30min_27_march_2015/natural/analysis/monthly_discharge"
 
 # folder and file for these output histograms
-histogram_output_location    = "/scratch/edwin/05_arcmin_runs/2014_11_28/multi_cores_non_natural_1960_to_2010/analysis/monthly_discharge/non_natural_run28nov2014_"
+histogram_output_location    = "/scratch/edwin/30min_27_march_2015/natural/analysis/monthly_discharge/natural_30min_27_march_"
 
 # read all summary tables:
 performance_table = read.table(paste(folder_of_analysis_summaries,"01/summary.txt",sep=""),header=T,sep=";")

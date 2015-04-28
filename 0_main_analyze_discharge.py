@@ -16,12 +16,13 @@ logger = logging.getLogger("main_script")
 
 # PCR-GLOBWB results: model output directory, 
 pcrglobwb_output = {}
-pcrglobwb_output["folder"]               = "/scratch/edwin/30min_17_april_2015/non-natural/netcdf/"                      # "/scratch-shared/edwinhs/05min_runs_01_april_2015/global/netcdf/" # 
+pcrglobwb_output["folder"]               = "/scratch/edwin/30min_27_april_2015/non-natural/"                      # "/scratch-shared/edwinhs/05min_runs_01_april_2015/global/netcdf/" # 
 pcrglobwb_output["netcdf_file_name"]     = "discharge_monthAvg_output.nc" 
 pcrglobwb_output["netcdf_variable_name"] = "discharge" 
 
 # output directory storing analysis results (results from this script)
-globalAnalysisOutputDir = "/scratch/edwin/30min_17_april_2015/non-natural/analysis/monthly_discharge/"                   # "/scratch-shared/edwinhs/05min_runs_01_april_2015/global/analysis/monthly_discharge/" # 
+#globalAnalysisOutputDir = "/scratch/edwin/30min_17_april_2015/non-natural/analysis/monthly_discharge/"           # "/scratch-shared/edwinhs/05min_runs_01_april_2015/global/analysis/monthly_discharge/" # 
+globalAnalysisOutputDir = pcrglobwb_output["folder"]+"/analysis/monthly_discharge/"
 cleanOutputDir          = True # option to clean analysisOutputDir 		
 
 # optional: PCR-GLOBWB output and analysis output folders are given in the system argument

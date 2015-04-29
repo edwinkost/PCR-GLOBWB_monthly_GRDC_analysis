@@ -88,6 +88,8 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
   }
 }
 
+print commandArgs()
+
 # folder where the analysis summaries are saved:
 # - this folder contains a number of sub-folders (18 per 10 June 2014)
 folder_of_analysis_summaries = "" # "/scratch/edwin/30min_27_march_2015/natural/analysis/monthly_discharge/"

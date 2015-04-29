@@ -95,7 +95,7 @@ folder_of_analysis_summaries = commandArgs()[4]
 
 # folder and file for these output histograms
 histogram_output_location    = "" # "/scratch/edwin/30min_27_march_2015/natural/analysis/monthly_discharge/natural_30min_27_march_"
-folder_of_analysis_summaries = commandArgs()[5]
+histogram_output_location    = commandArgs()[5]
 
 # read all summary tables:
 performance_table = read.table(paste(folder_of_analysis_summaries,"01/summary.txt",sep=""),header=T,sep=";")

@@ -7,18 +7,67 @@ rm(list=ls());ls()
 require('ggplot2'); require('RColorBrewer')
 
 # set minimum number of pairs that will be analyzed:
-minPairs = 60 # months
+minPairs = 2 # months
 
 # functions:
 #
 nPairs_function <- function(obs, pred) length(pred[which(!is.na(obs) & !is.na(pred))])
 #
+
+KGE_function <- function (Qsim, Qobs, method =  "2009") {
+# reference: http://homepages.ecs.vuw.ac.nz/~kevin/forSGEES/Compiled-Matlab/klinggupta.m
+
+# original data:
+Qobs_ori <- Qobs 
+Qsim_ori <- Qsim 
+
+# throw away missing values (both obs and sim must have values)
+Qsim <- Qsim_ori[!is.na(Qobs_ori) & !is.na(Qsim_ori)]
+Qobs <- Qobs_ori[!is.na(Qobs_ori) & !is.na(Qsim_ori)]
+
+
+if (length(Qobs) < 2 || length(Qsim) < 2) {return(NA)}
+
+modelled <- Qsim
+observed <- Qobs
+
+sd_modelled = sd(modelled)
+sd_observed = sd(observed)
+
+m_modelled = mean(modelled)
+m_observed = mean(observed)
+
+cor_pearson = cor(modelled, observed)
+
+if (sd_observed == 0) {(return(NA))}
+if (m_observed == 0) {(return(NA))}
+
+alpha_var = sd_modelled/sd_observed
+beta_bias  = m_modelled/m_observed
+
+kge_2009 <- 1 - sqrt( ((cor_pearson - 1)^2) + ((alpha_var-1)^2)  + ((beta_bias-1)^2))
+
+if (method == "2009") {return(kge_2009)}
+
+covar_modelled = sd_modelled/m_modelled
+covar_observed = sd_observed/m_observed
+
+gamma_covar = covar_modelled/covar_observed
+
+kge_2012 <- 1 - sqrt( ((cor_pearson - 1)^2) + ((gamma_covar-1)^2)  + ((beta_bias-1)^2))
+
+if (method == "2012") {return(kge_2012)}
+
+}
+
+#
 NSeff_function <- function (Qobs, Qsim) {
-    # throw away missing values
-    Qsim <- Qsim[!is.na(Qobs)]
-    Qobs <- Qobs[!is.na(Qobs)]
-    Qobs <- Qobs[!is.na(Qsim)]
-    Qsim <- Qsim[!is.na(Qsim)]
+    # original data:
+    Qobs_ori <-Qobs 
+    Qsim_ori <-Qsim 
+    # throw away missing values (both obs and sim must have values)
+    Qsim <- Qsim_ori[!is.na(Qobs_ori) & !is.na(Qsim_ori)]
+    Qobs <- Qobs_ori[!is.na(Qobs_ori) & !is.na(Qsim_ori)]
     if (length(Qobs) == 0 || length(Qsim) == 0) 
         return(NA)
     NS <- 1 - (sum((Qobs - Qsim)^2)/sum((Qobs - mean(Qobs))^2))
@@ -32,11 +81,12 @@ NSeff_log_function <- function (Qobs, Qsim) {
     # convert to become log values
     Qobs = log(Qobs)
     Qsim = log(Qsim)
-    # throw away missing values
-    Qsim <- Qsim[!is.na(Qobs)]
-    Qobs <- Qobs[!is.na(Qobs)]
-    Qobs <- Qobs[!is.na(Qsim)]
-    Qsim <- Qsim[!is.na(Qsim)]
+    # original data:
+    Qobs_ori <-Qobs 
+    Qsim_ori <-Qsim 
+    # throw away missing values (both obs and sim must have values)
+    Qsim <- Qsim_ori[!is.na(Qobs_ori) & !is.na(Qsim_ori)]
+    Qobs <- Qobs_ori[!is.na(Qobs_ori) & !is.na(Qsim_ori)]
     if (length(Qobs) == 0 || length(Qsim) == 0) 
         return(NA)
     NS <- 1 - (sum((Qobs - Qsim)^2)/sum((Qobs - mean(Qobs))^2))
@@ -64,8 +114,8 @@ modelTable[,1] = as.character(as.Date(modelTable[,1],origin="1901-01-01"))
 simulation = data.frame(modelTable[,1], modelTable[,2])
 names(simulation)[1] <- "date"
 names(simulation)[2] <- "simulation"
-simulation$date      = paste(substr(modelTable[,1], 1,8),"15",sep="")  #  simulation date -> assume day = 15
-simulation$date      = as.Date(simulation$date,"%Y-%m-%d")
+simulation$date = paste(substr(modelTable[,1], 1,8),"15",sep="")  #  simulation date -> assume day = 15
+simulation$date = as.Date(simulation$date,"%Y-%m-%d")
 
 # load the GRDC data
 grdcTableOriginal <- read.table(grdcFile,header=T,sep=";")
@@ -166,8 +216,12 @@ nPairs      =    nPairs_function(mergedTable$observation, mergedTable$simulation
 avg_obs     =   avg_obs_function(mergedTable$observation, mergedTable$simulation)
 avg_sim     =   avg_sim_function(mergedTable$observation, mergedTable$simulation)
 #
+KGE_2009    =       KGE_function(mergedTable$observation, mergedTable$simulation, "2009")
+KGE_2012    =       KGE_function(mergedTable$observation, mergedTable$simulation, "2012")
+#
 NSeff       =     NSeff_function(mergedTable$observation, mergedTable$simulation)
 NSeff_log   = NSeff_log_function(mergedTable$observation, mergedTable$simulation)
+#
 rmse        =      rmse_function(mergedTable$observation, mergedTable$simulation)
 mae         =       mae_function(mergedTable$observation, mergedTable$simulation)
 bias        =      bias_function(mergedTable$observation, mergedTable$simulation)
@@ -175,13 +229,12 @@ R2          =        R2_function(mergedTable$observation, mergedTable$simulation
 R2ad        =      R2ad_function(mergedTable$observation, mergedTable$simulation)
 correlation =                cor(mergedTable$observation, mergedTable$simulation, use = "na.or.complete")
 #
-performance = c(nPairs,avg_obs,avg_sim,NSeff,NSeff_log,rmse,mae,bias,R2,R2ad,correlation)
-performance_character = paste(nPairs,avg_obs,avg_sim,NSeff,NSeff_log,rmse,mae,bias,R2,R2ad,correlation,sep=";")
+performance_character = paste(nPairs,avg_obs,avg_sim,KGE_2009,KGE_2012,NSeff,NSeff_log,rmse,mae,bias,R2,R2ad,correlation,sep=";")
 
 # saving model performance to outputFile (in the memory)
 outputFile = paste(modelFile,".out",sep="")
 cat("observation file: ",grdcFile,"\n",sep="",file=outputFile)
-cat("nPairs;avg_obs;avg_sim;NSeff;NSeff_log;rmse;mae;bias;R2;R2ad;correlation","\n",sep="",file=outputFile,append=TRUE)
+cat("nPairs;avg_obs;avg_sim;KGE_2009;KGE_2012;NSeff;NSeff_log;rmse;mae;bias;R2;R2ad;correlation","\n",sep="",file=outputFile,append=TRUE)
 cat(performance_character,"\n",sep="",file=outputFile,append=TRUE)
 write.table(mergedTable,file=outputFile,sep=";",quote=FALSE,append=TRUE,row.names=FALSE)
 
@@ -220,17 +273,20 @@ outplott <- outplott +
  geom_text(aes(x = x_info_text, y = 0.65*y_max, label = attributeStat[8]), size = 2.5,hjust = 0) +
  geom_text(aes(x = x_info_text, y = 0.60*y_max, label = attributeStat[9]), size = 2.5,hjust = 0) +
 #
- geom_text(aes(x = x_info_text, y = 0.50*y_max, label = paste(" nPairs = ",     round(performance[1] ,2),sep="")), size = 2.5,hjust = 0) +
- geom_text(aes(x = x_info_text, y = 0.45*y_max, label = paste(" avg_obs = ",    round(performance[2] ,2),sep="")), size = 2.5,hjust = 0) +
- geom_text(aes(x = x_info_text, y = 0.40*y_max, label = paste(" avg_sim = ",    round(performance[3] ,2),sep="")), size = 2.5,hjust = 0) +
- geom_text(aes(x = x_info_text, y = 0.35*y_max, label = paste(" NSeff = ",      round(performance[4] ,2),sep="")), size = 2.5,hjust = 0) +
- geom_text(aes(x = x_info_text, y = 0.30*y_max, label = paste(" NSeff_log = ",  round(performance[5] ,2),sep="")), size = 2.5,hjust = 0) +
- geom_text(aes(x = x_info_text, y = 0.25*y_max, label = paste(" rmse = ",       round(performance[6] ,2),sep="")), size = 2.5,hjust = 0) +
- geom_text(aes(x = x_info_text, y = 0.20*y_max, label = paste(" mae = ",        round(performance[7] ,2),sep="")), size = 2.5,hjust = 0) +
- geom_text(aes(x = x_info_text, y = 0.15*y_max, label = paste(" bias = ",       round(performance[8] ,2),sep="")), size = 2.5,hjust = 0) +
- geom_text(aes(x = x_info_text, y = 0.10*y_max, label = paste(" R2 = ",         round(performance[9] ,2),sep="")), size = 2.5,hjust = 0) +
- geom_text(aes(x = x_info_text, y = 0.05*y_max, label = paste(" R2ad = ",       round(performance[10],2),sep="")), size = 2.5,hjust = 0) +
- geom_text(aes(x = x_info_text, y = 0.00*y_max, label = paste(" correlation = ",round(performance[11],2),sep="")), size = 2.5,hjust = 0) +
+ geom_text(aes(x = x_info_text, y = 0.55*y_max, label = paste(" nPairs = ",     round(nPairs ,2),sep="")), size = 2.5,hjust = 0) +
+ geom_text(aes(x = x_info_text, y = 0.50*y_max, label = paste(" avg obs/sim = ",round(avg_obs,2)," / ",round(avg_sim,2),sep="")), size = 2.5,hjust = 0) +
+#
+ geom_text(aes(x = x_info_text, y = 0.45*y_max, label = paste(" KGE_2009 = ",   round(KGE_2009   ,2),sep="")), size = 2.5,hjust = 0) +
+ geom_text(aes(x = x_info_text, y = 0.40*y_max, label = paste(" KGE_2012 = ",   round(KGE_2012   ,2),sep="")), size = 2.5,hjust = 0) +
+#
+ geom_text(aes(x = x_info_text, y = 0.35*y_max, label = paste(" NSeff = ",      round(NSeff      ,2),sep="")), size = 2.5,hjust = 0) +
+ geom_text(aes(x = x_info_text, y = 0.30*y_max, label = paste(" NSeff_log = ",  round(NSeff_log  ,2),sep="")), size = 2.5,hjust = 0) +
+ geom_text(aes(x = x_info_text, y = 0.25*y_max, label = paste(" rmse = ",       round(rmse       ,2),sep="")), size = 2.5,hjust = 0) +
+ geom_text(aes(x = x_info_text, y = 0.20*y_max, label = paste(" mae = ",        round(mae        ,2),sep="")), size = 2.5,hjust = 0) +
+ geom_text(aes(x = x_info_text, y = 0.15*y_max, label = paste(" bias = ",       round(bias       ,2),sep="")), size = 2.5,hjust = 0) +
+ geom_text(aes(x = x_info_text, y = 0.10*y_max, label = paste(" R2 = ",         round(R2         ,2),sep="")), size = 2.5,hjust = 0) +
+ geom_text(aes(x = x_info_text, y = 0.05*y_max, label = paste(" R2ad = ",       round(R2ad       ,2),sep="")), size = 2.5,hjust = 0) +
+ geom_text(aes(x = x_info_text, y = 0.00*y_max, label = paste(" correlation = ",round(correlation,2),sep="")), size = 2.5,hjust = 0) +
 #~ #
  scale_y_continuous("discharge",limits=c(y_min,y_max)) +
  scale_x_date('',limits=c(x_min,x_max)) +

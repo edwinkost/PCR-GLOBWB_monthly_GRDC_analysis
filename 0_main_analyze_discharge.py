@@ -60,8 +60,6 @@ cellAreaMapFileName    = "/projects/0/dfguu/data/hydroworld/PCRGLOBWB20/input5mi
 # the following is needed for evaluating model results with 5 arcmin resolution
 catchmentClassFileName = None 
 
-# TODO: add temporary directory - It is not a good idea to store temporary files in the memory (/dev/shm)!
-
 def main():
 
     # get the argument: 
@@ -78,14 +76,20 @@ def main():
         os.makedirs(analysisOutputDir) 
     except:
         if cleanOutputDir == True: os.system('rm -r '+analysisOutputDir+"/*") 
+    #
+    # temporary directory (note that it is NOT a good idea to store temporary files in the memory (/dev/shm))
+    temporary_directory = analysisOutputDir+"/tmp/"
+    try:
+        os.makedirs(temporary_directory) 
+    except:
+        os.system('rm -r '+temporary_directory+"/*") # make sure that temporary directory is clean 
 
     # logger object
     logger = Logger(analysisOutputDir)
     
     # get GRDC attributes of all stations:
     dischargeEvaluation = dischargeGRDC.DischargeEvaluation(pcrglobwb_output["folder"],\
-                                                            startDate,\
-                                                            endDate)
+                                                            startDate,endDate,temporary_directory)
     dischargeEvaluation.get_grdc_attributes(directoryGRDC)
 
     # evaluate model results

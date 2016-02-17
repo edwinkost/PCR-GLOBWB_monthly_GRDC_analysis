@@ -3,10 +3,9 @@ import re
 import glob
 import datetime
 
-import pcraster as pcr
-
-import netCDF4 as nc
 import numpy as np
+import pcraster as pcr
+import netCDF4 as nc
 
 import virtualOS as vos
 
@@ -19,10 +18,10 @@ filecache = dict()
 
 class DischargeEvaluation(object):
 
-    def __init__(self, modelOutputFolder,startDate=None,endDate=None):
+    def __init__(self, modelOutputFolder,startDate=None,endDate=None,temporary_directory=None):
         object.__init__(self)
         
-        logger.info('Evaluating the model results stored in %s.', modelOutputFolder)
+        logger.info('Evaluating the model results (monthly discharge) stored in %s.', modelOutputFolder)
         
         self.startDate = startDate
         self.endDate   =   endDate
@@ -33,6 +32,9 @@ class DischargeEvaluation(object):
         else:
             logger.info("Entire model results will be analyzed to available observation data.")
 
+        self.tmpDir = "/dev/shm/"
+        if temporary_directory != None: self.tmpDir = temporary_directory
+        
         # initiating a dictionary that will contain all GRDC attributes:
         self.attributeGRDC = {}
         #
@@ -62,7 +64,9 @@ class DischargeEvaluation(object):
                 "rmse",                         
                 "mae",                          
                 "ns_efficiency",                
-                "ns_efficiency_log"]
+                "ns_efficiency_log",
+                "kge_2009",
+                "kge_2012"]
         #
         for key in self.grdc_dict_keys: self.attributeGRDC[key] = {}                     
 
@@ -73,7 +77,7 @@ class DischargeEvaluation(object):
         # (this list should be empty at the end of the calculation):
         self.randomDirList = [] 
 
-    def makeRandomDir(self,tmpDir="/dev/shm/"):
+    def makeRandomDir(self,tmpDir):
 
         # make a random (temporary) directory (default: in the memory)
         randomDir = tmpDir + vos.get_random_word()
@@ -191,8 +195,11 @@ class DischargeEvaluation(object):
                                 cellAreaMapFileName,\
                                 pcrglobwb_output,\
                                 analysisOutputDir="",\
-                                tmpDir = "/dev/shm/edwin_grdc_"):     
+                                tmpDir = None):     
 
+        # temporary directory
+        if tmpDir == None: tmpDir = self.tmpDir+"/edwin_grdc_"
+        
         # output directory for all analyses for all stations
         analysisOutputDir   = str(analysisOutputDir)
         self.chartOutputDir = analysisOutputDir+"/chart/"
@@ -497,14 +504,16 @@ class DischargeEvaluation(object):
                 nPairs          = float(performance[0])
                 avg_obs         = float(performance[1])
                 avg_sim         = float(performance[2])
-                NSeff           = float(performance[3])
-                NSeff_log       = float(performance[4])
-                rmse            = float(performance[5])
-                mae             = float(performance[6])
-                bias            = float(performance[7])
-                R2              = float(performance[8])
-                R2ad            = float(performance[9])
-                correlation     = float(performance[10])
+                KGE_2009        = float(performance[3])
+                KGE_2012        = float(performance[4])
+                NSeff           = float(performance[5])
+                NSeff_log       = float(performance[6])
+                rmse            = float(performance[7])
+                mae             = float(performance[8])
+                bias            = float(performance[9])
+                R2              = float(performance[10])
+                R2ad            = float(performance[11])
+                correlation     = float(performance[12])
                 #
                 table_file_name = self.tableOutputDir+"/"+\
                                                           str(self.attributeGRDC["country_code"][str(id)])+"_"+\
@@ -531,6 +540,8 @@ class DischargeEvaluation(object):
                 nPairs          = "NA"
                 avg_obs         = "NA"
                 avg_sim         = "NA"
+                KGE_2009        = "NA"
+                KGE_2012        = "NA"
                 NSeff           = "NA"
                 NSeff_log       = "NA"
                 rmse            = "NA"
@@ -550,6 +561,8 @@ class DischargeEvaluation(object):
             self.attributeGRDC["num_of_month_pairs"][str(id)]  = nPairs               
             self.attributeGRDC["average_observation"][str(id)] = avg_obs            
             self.attributeGRDC["average_model"][str(id)]       = avg_sim                   
+            self.attributeGRDC["kge_2009"][str(id)]            = KGE_2009                     
+            self.attributeGRDC["kge_2012"][str(id)]            = KGE_2012                     
             self.attributeGRDC["ns_efficiency"][str(id)]       = NSeff                     
             self.attributeGRDC["ns_efficiency_log"][str(id)]   = NSeff_log            
             self.attributeGRDC["rmse"][str(id)]                = rmse                               

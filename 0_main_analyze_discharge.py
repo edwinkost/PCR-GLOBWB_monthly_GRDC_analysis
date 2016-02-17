@@ -16,12 +16,12 @@ logger = logging.getLogger("main_script")
 
 # PCR-GLOBWB results: model output directory, 
 pcrglobwb_output = {}
-pcrglobwb_output["folder"]               = "/projects/0/wtrcycle/users/edwinhs/05min_runs/27april2015/non_natural/global/netcdf/" # 
+pcrglobwb_output["folder"]               = "/projects/0/dfguu/users/edwin/05min_runs_november_2015_merged/pcrglobwb_modflow_from_1901/1901_to_2010/" # 
 pcrglobwb_output["netcdf_file_name"]     = "discharge_monthAvg_output.nc" 
 pcrglobwb_output["netcdf_variable_name"] = "discharge" 
 
 # output directory storing analysis results (results from this script)
-globalAnalysisOutputDir = "/projects/0/wtrcycle/users/edwinhs/05min_runs/27april2015/non_natural/global/analysis/monthly_discharge/" # 
+globalAnalysisOutputDir = "/projects/0/dfguu/users/edwin/05min_runs_november_2015_merged/pcrglobwb_modflow_from_1901/1901_to_2010/analysis/monthly_discharge/" # 
 cleanOutputDir          = True # option to clean analysisOutputDir 		
 
 # optional: PCR-GLOBWB output and analysis output folders are given in the system argument
@@ -34,13 +34,13 @@ startDate = None # "1958-01-31" #YYYY-MM-DD # None
 endDate   = None # "2010-12-31" #YYYY-MM-DD # None 
 
 # directory for GRDC files:
-globalDirectoryGRDC    = "/scratch-shared/edwinhs/observation_data/grdc_monthly_data_splitted/"                          # "/scratch/edwin/observation_data/grdc_monthly_data_splitted/"
+globalDirectoryGRDC    = "/projects/0/dfguu/users/edwin/data/observation_data/grdc_monthly_data_splitted/"           # "/scratch/edwin/observation_data/grdc_monthly_data_splitted/"
 # This directory will contain several sub-folders (18 sub-folders per 10 Jun 2014)
 
 # for 5min results of PCR-GLOBWB 2.0
-globalCloneMapFileName = "/scratch-shared/dfguu/data/hydroworld/PCRGLOBWB20/input5min/routing/lddsound_05min.map"        # "/data/hydroworld/PCRGLOBWB20/input5min/routing/lddsound_05min.map"
-lddMapFileName         = "/scratch-shared/dfguu/data/hydroworld/PCRGLOBWB20/input5min/routing/lddsound_05min.map"        # "/data/hydroworld/PCRGLOBWB20/input5min/routing/lddsound_05min.map"
-cellAreaMapFileName    = "/scratch-shared/dfguu/data/hydroworld/PCRGLOBWB20/input5min/routing/cellsize05min.correct.map" # "/data/hydroworld/PCRGLOBWB20/input5min/routing/cellsize05min.correct.map"
+globalCloneMapFileName = "/projects/0/dfguu/data/hydroworld/PCRGLOBWB20/input5min/routing/lddsound_05min.map"        # "/data/hydroworld/PCRGLOBWB20/input5min/routing/lddsound_05min.map"
+lddMapFileName         = "/projects/0/dfguu/data/hydroworld/PCRGLOBWB20/input5min/routing/lddsound_05min.map"        # "/data/hydroworld/PCRGLOBWB20/input5min/routing/lddsound_05min.map"
+cellAreaMapFileName    = "/projects/0/dfguu/data/hydroworld/PCRGLOBWB20/input5min/routing/cellsize05min.correct.map" # "/data/hydroworld/PCRGLOBWB20/input5min/routing/cellsize05min.correct.map"
 
 #~ # for 30min results (of PCR-GLOBWB 2.0)
 #~ globalCloneMapFileName = "/data/hydroworld/PCRGLOBWB20/input30min/global/Global_CloneMap_30min.map"

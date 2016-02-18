@@ -22,7 +22,7 @@ pcrglobwb_output["netcdf_variable_name"] = "discharge"
 
 # output directory storing analysis results (results from this script)
 globalAnalysisOutputDir                  = "/projects/0/dfguu/users/edwin/05min_runs_november_2015_merged/pcrglobwb_only_from_1901/1901_to_2010/analysis/monthly_discharge/" # 
-cleanOutputDir                           = False # option to clean analysisOutputDir 		
+cleanOutputDir                           = True # option to clean analysisOutputDir   # FIXME: This must always be True 		
 
 # optional: PCR-GLOBWB output and analysis output folders are given in the system argument
 #~ if len(sys.argv) > 1:

@@ -75,6 +75,7 @@ def main():
     try:
         os.makedirs(analysisOutputDir) 
     except:
+        print('test')
         if cleanOutputDir == True: os.system('rm -r '+analysisOutputDir+"/*") 
     #
     # temporary directory (note that it is NOT a good idea to store temporary files in the memory (/dev/shm))

@@ -24,14 +24,9 @@ pcrglobwb_output["netcdf_variable_name"] = "discharge"
 globalAnalysisOutputDir                  = None                         # "/scratch-shared/edwinhs/05min_runs_analysis_performed_on_june_2016/" # 
 cleanOutputDir                           = True                         # option to clean analysisOutputDir   # FIXME: This must always be True 		
 
-# optional: PCR-GLOBWB output and analysis output folders are given in the system argument
-#~ if len(sys.argv) > 1:
-    #~ pcrglobwb_output["folder"] = str(sys.argv[1])
-    #~ globalAnalysisOutputDir    = str(sys.argv[2])
-
 # time range for analyses
-startDate = None "1901-01-31" # None # "1958-01-31" #YYYY-MM-DD # None 
-endDate   = None "2010-12-31" # None # "2010-12-31" #YYYY-MM-DD # None 
+startDate = None # "1901-01-31" # None # "1958-01-31" #YYYY-MM-DD # None 
+endDate   = None # "2010-12-31" # None # "2010-12-31" #YYYY-MM-DD # None 
 
 # directory for GRDC files:
 globalDirectoryGRDC    = "/projects/0/dfguu/users/edwin/data/observation_data/grdc_monthly_data_splitted/"           # "/scratch/edwin/observation_data/grdc_monthly_data_splitted/"

@@ -30,8 +30,8 @@ cleanOutputDir                           = True                         # option
     #~ globalAnalysisOutputDir    = str(sys.argv[2])
 
 # time range for analyses
-startDate = "1901-01-31" # None # "1958-01-31" #YYYY-MM-DD # None 
-endDate   = "2010-12-31" # None # "2010-12-31" #YYYY-MM-DD # None 
+startDate = None "1901-01-31" # None # "1958-01-31" #YYYY-MM-DD # None 
+endDate   = None "2010-12-31" # None # "2010-12-31" #YYYY-MM-DD # None 
 
 # directory for GRDC files:
 globalDirectoryGRDC    = "/projects/0/dfguu/users/edwin/data/observation_data/grdc_monthly_data_splitted/"           # "/scratch/edwin/observation_data/grdc_monthly_data_splitted/"

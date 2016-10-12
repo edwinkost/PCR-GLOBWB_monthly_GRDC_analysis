@@ -17,3 +17,5 @@ python 0_main_analyze_discharge_flexible.py /projects/0/aqueduct/users/edwinsut/
 python 0_main_analyze_discharge_flexible.py /projects/0/aqueduct/users/edwinsut/pcrglobwb_runs_2016_aug_oct/pcrglobwb_4_land_covers_edwin_parameter_set_gfdl-esm2m/no_correction/non-natural/merged_1951-2005/global/netcdf/ /projects/0/aqueduct/users/edwinsut/pcrglobwb_runs_2016_aug_oct/pcrglobwb_4_land_covers_edwin_parameter_set_gfdl-esm2m/no_correction/non-natural/merged_1951-2005/global/monthly_discharge_analysis/ 17 &
 python 0_main_analyze_discharge_flexible.py /projects/0/aqueduct/users/edwinsut/pcrglobwb_runs_2016_aug_oct/pcrglobwb_4_land_covers_edwin_parameter_set_gfdl-esm2m/no_correction/non-natural/merged_1951-2005/global/netcdf/ /projects/0/aqueduct/users/edwinsut/pcrglobwb_runs_2016_aug_oct/pcrglobwb_4_land_covers_edwin_parameter_set_gfdl-esm2m/no_correction/non-natural/merged_1951-2005/global/monthly_discharge_analysis/ 18 &
 wait
+
+killall -u edwinsut

@@ -404,7 +404,8 @@ class DischargeEvaluation(object):
                 if int(landmaskCode) < 10: landmaskCode = "0"+landmaskCode 
 
                 # identify the landmask - # TODO: THIS MUST BE FIXED
-                ncFile = "/projects/wtrcycle/users/edwinhs/two_layers_with_demand_one_degree_zonation_cruts3.21-era_interim_5arcmin_but_30minArno"+"/M"+landmaskCode+"/netcdf/discharge_monthAvg_output.nc"
+                ncFile = ""
+                #~ ncFile = "/projects/wtrcycle/users/edwinhs/two_layers_with_demand_one_degree_zonation_cruts3.21-era_interim_5arcmin_but_30minArno"+"/M"+landmaskCode+"/netcdf/discharge_monthAvg_output.nc"
             
             logger.info("Reading and evaluating the model result for the grdc station "+str(id)+" from "+ncFile)
             

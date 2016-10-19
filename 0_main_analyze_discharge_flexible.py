@@ -17,7 +17,7 @@ logger = logging.getLogger("main_script")
 # PCR-GLOBWB results: model output directory
 pcrglobwb_output = {}
 pcrglobwb_output["folder"]               = None                         # "/projects/0/dfguu/users/edwin/05min_runs_november_2015_merged/pcrglobwb_only_from_1901/1901_to_2010/" # 
-pcrglobwb_output["netcdf_file_name"]     = "discharge_monthAvg_output_1951-01-31_to_2005-12-31.nc" 
+pcrglobwb_output["netcdf_file_name"]     = "discharge_monthAvg_output.nc" 
 pcrglobwb_output["netcdf_variable_name"] = "discharge" 
 
 # output directory storing analysis results (results from this script)

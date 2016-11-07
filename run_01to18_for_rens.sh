@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH -N 1
-#SBATCH -t 47:59:00 
+#SBATCH -t 23:59:00 
 #SBATCH -p normal
 
 python 0_main_analyze_discharge_flexible.py /scratch-shared/rens/kinematicwave_nonnatural_spinup_watch/netcdf/ /scratch-shared/edwinhs/rens_monthly_discharge_analysis/ 01 &

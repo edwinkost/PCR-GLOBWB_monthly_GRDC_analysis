@@ -72,8 +72,8 @@ def main():
     
     # start date and end dates
     try: 
-        if argument[4] != "default": endDate   = str(argument[4])
-        if argument[5] != "default": startDate = str(argument[5])
+        if argument[5] != "default": endDate   = str(argument[5])
+        if argument[4] != "default": startDate = str(argument[4])
     except:
         pass
 

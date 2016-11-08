@@ -70,6 +70,13 @@ def main():
     # sub_folder to split/parallelize the analyses
     sub_folder                 = str(argument[3])
     
+    # start date and end dates
+    try: 
+        endDate   = str(argument[4])
+        startDate = str(argument[5])
+    except:
+        pass
+    
     # sub-folders of the analysis output and GRDC folders 
     analysisOutputDir = globalAnalysisOutputDir + "/" + sub_folder + "/"
     directoryGRDC     = globalDirectoryGRDC + "/" + sub_folder + "/"

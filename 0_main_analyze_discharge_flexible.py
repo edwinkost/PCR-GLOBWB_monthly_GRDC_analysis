@@ -72,8 +72,20 @@ def main():
     
     # start date and end dates
     try: 
-        endDate   = str(argument[4])
-        startDate = str(argument[5])
+        if str(argument[4]) != "default": endDate   = str(argument[4])
+        if str(argument[5]) != "default": startDate = str(argument[5])
+    except:
+        pass
+
+    # netcdf file name and variable name
+    try: 
+        pcrglobwb_output["netcdf_file_name"] = str(argument[6])
+    except:
+        pass
+
+    # netcdf variable name
+    try: 
+        pcrglobwb_output["netcdf_variable_name"] = str(argument[7])
     except:
         pass
     
@@ -88,7 +100,7 @@ def main():
         if cleanOutputDir == True: os.system('rm -r '+analysisOutputDir+"/*") 
     #
     # temporary directory (note that it is NOT a good idea to store temporary files in the memory (/dev/shm))
-    temporary_directory = analysisOutputDir+"/tmp/"
+    temporary_directory = analysisOutputDir + "/tmp/"
     try:
         os.makedirs(temporary_directory) 
     except:

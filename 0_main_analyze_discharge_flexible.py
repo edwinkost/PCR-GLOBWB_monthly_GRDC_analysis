@@ -24,10 +24,6 @@ pcrglobwb_output["netcdf_variable_name"] = "discharge"
 globalAnalysisOutputDir                  = None                         # "/scratch-shared/edwinhs/05min_runs_analysis_performed_on_june_2016/" # 
 cleanOutputDir                           = True                         # option to clean analysisOutputDir   # FIXME: This must always be True 		
 
-# time range for analyses
-startDate = None # "1901-01-31" # None # "1958-01-31" #YYYY-MM-DD # None 
-endDate   = None # "2010-12-31" # None # "2010-12-31" #YYYY-MM-DD # None 
-
 # directory for GRDC files:
 globalDirectoryGRDC    = "/projects/0/dfguu/users/edwin/data/observation_data/grdc_monthly_data_splitted/"           # "/scratch/edwin/observation_data/grdc_monthly_data_splitted/"
 # This directory will contain several sub-folders (18 sub-folders per 10 Jun 2014)
@@ -70,7 +66,9 @@ def main():
     # sub_folder to split/parallelize the analyses
     sub_folder                 = str(argument[3])
     
-    # start date and end dates
+    # start date and end dates for analyses
+    startDate = None # "1901-01-31" # None # "1958-01-31" #YYYY-MM-DD # None 
+    endDate   = None # "2010-12-31" # None # "2010-12-31" #YYYY-MM-DD # None 
     try: 
         if argument[5] != "default": endDate   = str(argument[5])
         if argument[4] != "default": startDate = str(argument[4])

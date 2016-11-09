@@ -22,6 +22,3 @@ python 0_main_analyze_discharge_flexible.py /scratch-shared/rens/kinematicwave_n
 python 0_main_analyze_discharge_flexible.py /scratch-shared/rens/kinematicwave_nonnatural_spinup_watch/netcdf/ /scratch-shared/edwinhs/rens_monthly_discharge_analysis/ 17 &
 python 0_main_analyze_discharge_flexible.py /scratch-shared/rens/kinematicwave_nonnatural_spinup_watch/netcdf/ /scratch-shared/edwinhs/rens_monthly_discharge_analysis/ 18 &
 wait
-
-killall
-

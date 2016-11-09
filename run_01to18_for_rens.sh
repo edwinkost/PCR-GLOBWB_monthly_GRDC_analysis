@@ -12,7 +12,6 @@ python 0_main_analyze_discharge_flexible.py /scratch-shared/rens/kinematicwave_n
 python 0_main_analyze_discharge_flexible.py /scratch-shared/rens/kinematicwave_nonnatural_spinup_watch/netcdf/ /scratch-shared/edwinhs/rens_monthly_discharge_analysis/ 07 &
 python 0_main_analyze_discharge_flexible.py /scratch-shared/rens/kinematicwave_nonnatural_spinup_watch/netcdf/ /scratch-shared/edwinhs/rens_monthly_discharge_analysis/ 08 &
 python 0_main_analyze_discharge_flexible.py /scratch-shared/rens/kinematicwave_nonnatural_spinup_watch/netcdf/ /scratch-shared/edwinhs/rens_monthly_discharge_analysis/ 09 &
-wait
 python 0_main_analyze_discharge_flexible.py /scratch-shared/rens/kinematicwave_nonnatural_spinup_watch/netcdf/ /scratch-shared/edwinhs/rens_monthly_discharge_analysis/ 10 &
 python 0_main_analyze_discharge_flexible.py /scratch-shared/rens/kinematicwave_nonnatural_spinup_watch/netcdf/ /scratch-shared/edwinhs/rens_monthly_discharge_analysis/ 11 &
 python 0_main_analyze_discharge_flexible.py /scratch-shared/rens/kinematicwave_nonnatural_spinup_watch/netcdf/ /scratch-shared/edwinhs/rens_monthly_discharge_analysis/ 12 &

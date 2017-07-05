@@ -197,3 +197,6 @@ output_file = paste(histogram_output_location,"multi_histograms.pdf",sep="")
 pdf(output_file, width = 22.5/2.54, height = 25/2.54)
 multiplot(histogram_performance_1, histogram_performance_2, histogram_performance_3, cols=1)
 dev.off()
+
+# write the performance_table to a txt file
+write.table(performance_table, "summary_all.txt", sep = ";", row.names = FALSE, col.names = TRUE)

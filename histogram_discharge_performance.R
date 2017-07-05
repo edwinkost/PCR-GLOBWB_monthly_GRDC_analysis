@@ -200,4 +200,4 @@ dev.off()
 
 # write the performance_table to a txt file
 table_output_file = paste(histogram_output_location, "summary_all.txt", sep="")
-write.table(performance_table, "table_output_file", sep = ";", row.names = FALSE, col.names = TRUE)
+write.table(performance_table, table_output_file, sep = ";", row.names = FALSE, col.names = TRUE)

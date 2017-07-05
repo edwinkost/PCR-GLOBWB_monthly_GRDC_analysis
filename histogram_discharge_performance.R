@@ -199,4 +199,5 @@ multiplot(histogram_performance_1, histogram_performance_2, histogram_performanc
 dev.off()
 
 # write the performance_table to a txt file
-write.table(performance_table, "summary_all.txt", sep = ";", row.names = FALSE, col.names = TRUE)
+table_output_file = paste(histogram_output_location, "/summary_all.txt", sep="")
+write.table(performance_table, "table_output_file", sep = ";", row.names = FALSE, col.names = TRUE)

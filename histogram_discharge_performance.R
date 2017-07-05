@@ -121,6 +121,10 @@ performance_table  = cbind(performance_table, absolute_deviation, actual_deviati
 # make sure that all values in the table have valid values:
 performance_table[is.na(performance_table)] = NA
 
+# write the performance_table to a txt file
+table_output_file = paste(histogram_output_location, "summary_all.txt", sep="")
+write.table(performance_table, table_output_file, sep = ";", row.names = FALSE, col.names = TRUE)
+
 # CLASSIFICATION based on "simulated_runoff" (unit: mm/year)
 #############################################################################################################################################################
 performance_table$simulated_runoff[which(performance_table$simulated_runoff < 0.0)] = NA
@@ -197,7 +201,3 @@ output_file = paste(histogram_output_location,"multi_histograms.pdf",sep="")
 pdf(output_file, width = 22.5/2.54, height = 25/2.54)
 multiplot(histogram_performance_1, histogram_performance_2, histogram_performance_3, cols=1)
 dev.off()
-
-# write the performance_table to a txt file
-table_output_file = paste(histogram_output_location, "summary_all.txt", sep="")
-write.table(performance_table, table_output_file, sep = ";", row.names = FALSE, col.names = TRUE)

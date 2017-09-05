@@ -22,7 +22,6 @@ pcrglobwb_output["netcdf_variable_name"] = "discharge"
 
 # output directory storing analysis results (results from this script)
 globalAnalysisOutputDir                  = None # "/scratch-shared/edwinhs/05min_runs_analysis_performed_on_june_2016/"
-globalAnalysisOutputDir                  = "/scratch-shared/edwinhs/runs_2017_finalizing_4LCs/30min/4LCs_accutraveltime_cru-forcing_latest_version/non-natural/analysis/monthly_discharge_analysis_1985-2015/"# Note that the GRDC observation data are not available until 2015 (requested by Edwin on 23 April 2014)                              
 cleanOutputDir                           = True                         # option to clean analysisOutputDir   # FIXME: This must always be True 		
 
 # directory for GRDC files:
@@ -38,16 +37,6 @@ globalDirectoryGRDC    = "/projects/0/dfguu/users/edwin/data/observation_data/gr
 globalCloneMapFileName = "/data/hydroworld/PCRGLOBWB20/input30min/routing/lddsound_30min.map"
 lddMapFileName         = "/data/hydroworld/PCRGLOBWB20/input30min/routing/lddsound_30min.map"
 cellAreaMapFileName    = "/data/hydroworld/PCRGLOBWB20/input30min/routing/cellarea30min.map"
-
-#~ # for WATCH 30min clone map
-#~ globalCloneMapFileName = "/data/hydroworld/PCRGLOBWB20/input30min/global/Global_CloneMap_30min.map"
-#~ lddMapFileName         = "/home/beek0120/PCR-GLOBWB/WaterTemperature/Watch/GRanD/lddsound_wfd_30min.map"
-#~ cellAreaMapFileName    = "/scratch/edwin/tmp/cellarea_wfd_30min/cellarea_wfd_30min.map"
-
-#~ # for PCR-GLOBWB 1.0, we use the maps from Rens's directory:
-#~ globalCloneMapFileName = "/home/beek0120/PCR-GLOBWB/PCR-GLOBWB_V1.0/input30min/maps/Global_Clone_30min.map"
-#~ lddMapFileName         = "/home/beek0120/PCR-GLOBWB/PCR-GLOBWB_V1.0/input30min/maps/Global_LDD_30min.map"
-#~ cellAreaMapFileName    = "/home/beek0120/PCR-GLOBWB/PCR-GLOBWB_V1.0/input30min/maps/Global_Cellarea_30min.map"
 
 # the following is needed for evaluating model results with 5 arcmin resolution
 catchmentClassFileName = None 

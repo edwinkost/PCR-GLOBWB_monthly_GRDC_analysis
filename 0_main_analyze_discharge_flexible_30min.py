@@ -34,9 +34,9 @@ globalDirectoryGRDC    = "/projects/0/dfguu/users/edwin/data/observation_data/gr
 #~ cellAreaMapFileName    = "/projects/0/dfguu/data/hydroworld/PCRGLOBWB20/input5min/routing/cellsize05min.correct.map" # "/data/hydroworld/PCRGLOBWB20/input5min/routing/cellsize05min.correct.map"
 
 # for 30min results (of PCR-GLOBWB 2.0)
-globalCloneMapFileName = "/data/hydroworld/PCRGLOBWB20/input30min/routing/lddsound_30min.map"
-lddMapFileName         = "/data/hydroworld/PCRGLOBWB20/input30min/routing/lddsound_30min.map"
-cellAreaMapFileName    = "/data/hydroworld/PCRGLOBWB20/input30min/routing/cellarea30min.map"
+globalCloneMapFileName = "/projects/0/dfguu/data/hydroworld/PCRGLOBWB20/input30min/routing/lddsound_30min.map"
+lddMapFileName         = "/projects/0/dfguu/data/hydroworld/PCRGLOBWB20/input30min/routing/lddsound_30min.map"
+cellAreaMapFileName    = "/projects/0/dfguu/data/hydroworld/PCRGLOBWB20/input30min/routing/cellarea30min.map"
 
 # the following is needed for evaluating model results with 5 arcmin resolution
 catchmentClassFileName = None 

@@ -1,7 +1,7 @@
 
 python_script_file_used="0_main_analyze_discharge_flexible_05min.py" 
 pcrglobwb_output_folder="/projects/0/dfguu2/scratch/edwinhs/pcrglobwb2_output_05min_deltares_subsidence/natural_spinup/begin_from_1958/global/netcdf/merged_1958_to_2010/"
-global_analysis_out_dir="/projects/0/dfguu2/scratch/edwinhs/pcrglobwb2_output_05min_deltares_subsidence/natural_spinup/begin_from_1958/global/netcdf/merged_1958_to_2010/edwin_discharge_analysis_1958-2010/"
+global_analysis_out_dir="/projects/0/dfguu2/scratch/edwinhs/pcrglobwb2_output_05min_deltares_subsidence/natural_spinup/begin_from_1958/global/netcdf/merged_1958_to_2010/analysis/edwin_monthly_discharge_analysis_1958-2010/"
 str_date=1958-01-31
 end_date=2010-12-31
 # Note that the GRDC observation data are not available until 2015 (requested by Edwin on 23 April 2014)                              

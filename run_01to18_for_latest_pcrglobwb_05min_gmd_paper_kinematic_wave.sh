@@ -1,6 +1,6 @@
 
 python_script_file_used="0_main_analyze_discharge_flexible_05min.py" 
-pcrglobwb_output_folder="/scratch-shared/edwinhs/pcrglobwb2_output_gmd_paper_rerun_201902XX/05min/non-natural_kinematic-wave/merged_1958_to_2015/"
+pcrglobwb_output_folder="/scratch-shared/edwin/tmp/"
 global_analysis_out_dir="/scratch-shared/edwin/tmp/05min_non-natural_kinematic-wave_edwin_discharge_analysis_1958-2015/"
 str_date=1958-01-31
 end_date=2015-12-31

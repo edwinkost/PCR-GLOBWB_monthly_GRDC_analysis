@@ -1,19 +1,41 @@
 
-python_script_file_used="0_main_analyze_discharge_flexible_06min.py"
+script_folder=/home/edwin/github/edwinkost/PCR-GLOBWB_monthly_GRDC_analysis
+cd ${script_folder}
 
-pcrglobwb_output_folder="/scratch/shared/edwin/uly_6min_results/"
+python_script_file_used="0_main_analyze_discharge_flexible_also.py"
 
-global_analysis_out_dir="/scratch/shared/edwin/uly_6min_results/edwin_monthly_discharge_evaluation/"
+#~ edwin@fcn18.bullx:/scratch-shared/edwin/ulysses_results_until_2020-09-01/ulysses_gmd-precipitation$ ls -lah
+#~ total 11G
+#~ drwxr-xr-x 2 edwin edwin 4.0K Sep  2 11:07 .
+#~ drwxr-xr-x 5 edwin edwin 4.0K Sep  2 10:54 ..
+#~ -rw-r----- 1 edwin edwin  11G Sep  2 11:07 discharge_monthAvg_output_1981-01-31_to_2015-12-31.nc
+
+pcrglobwb_output_folder="/scratch-shared/edwin/ulysses_results_until_2020-09-01/ulysses_gmd-parameters/"
+
+global_analysis_out_dir="/scratch-shared/edwin/ulysses_results_until_2020-09-01/ulysses_gmd-parameters/edwin_monthly_discharge_evaluation/"
 
 str_date=1981-01-31
-end_date=2019-12-31
+end_date=2015-12-31
 
 # Note that the GRDC observation data are not available until 2015 (requested by Edwin on 23 April 2014)                              
-discharge_file_name="discharge_monthAvg_output_1981-01-31_to_2019-12-31_remap.nc"
+discharge_file_name="discharge_monthAvg_output_1981-01-31_to_2019-12-31.nc"
 
-globalclone="/scratch/shared/edwin/uly_6min_results/clone.map" 
-lddmap_file="/scratch/shared/edwin/uly_6min_results/lddsound_06min_version_202007XX_for_ulysses.map" 
-cellarea_m2="/scratch/shared/edwin/uly_6min_results/cdo_griddarea.map" 
+#~ globalclone="/scratch-shared/edwin/ulysses_results_until_2020-09-01/ulysses_default/lddsound_06min_version_202007XX_for_ulysses.map"
+#~ lddmap_file="/scratch-shared/edwin/ulysses_results_until_2020-09-01/ulysses_default/lddsound_06min_version_202007XX_for_ulysses.map" 
+#~ cellarea_m2="/scratch-shared/edwin/ulysses_results_until_2020-09-01/ulysses_default/cdo_griddarea.map" 
+
+globalclone="/projects/0/dfguu/data/hydroworld/pcrglobwb2_input_release/version_2019_11_beta_extended/pcrglobwb2_input/global_05min/routing/ldd_and_cell_area/lddsound_05min.map"
+lddmap_file="/projects/0/dfguu/data/hydroworld/pcrglobwb2_input_release/version_2019_11_beta_extended/pcrglobwb2_input/global_05min/routing/ldd_and_cell_area/lddsound_05min.map"
+cellarea_m2="/projects/0/dfguu/data/hydroworld/pcrglobwb2_input_release/version_2019_11_beta_extended/pcrglobwb2_input/global_05min/routing/ldd_and_cell_area/cellsize05min.correct.map"
+
+#~ edwin@fcn18.bullx:/projects/0/dfguu/data/hydroworld/pcrglobwb2_input_release/version_2019_11_beta_extended/pcrglobwb2_input/global_05min/routing/ldd_and_cell_area$ ls -lah *
+#~ -rwxr-xr-x 1 hydrowld dfguu  36M Dec  5  2019 cellsize05min.correct.map
+#~ -rw-r--r-- 1 hydrowld dfguu  36M Dec  5  2019 cellsize05min.correct.nc
+#~ -rw-r--r-- 1 hydrowld dfguu  36M Dec  5  2019 cellsize05min_correct.nc
+#~ -rw-r--r-- 1 hydrowld dfguu  129 Dec  5  2019 hydroworld_source.txt
+#~ -rwxr-xr-x 1 hydrowld dfguu 8.9M Dec  5  2019 lddsound_05min.map
+#~ -rw-r--r-- 1 hydrowld dfguu  36M Dec  5  2019 lddsound_05min.nc
+#~ -rw-r--r-- 1 hydrowld dfguu  36M Dec  5  2019 lddsound_05min_unmask.nc
 
 python $python_script_file_used $pcrglobwb_output_folder $global_analysis_out_dir 01 $str_date $end_date $discharge_file_name discharge ${globalclone} ${lddmap_file} ${cellarea_m2} &
 python $python_script_file_used $pcrglobwb_output_folder $global_analysis_out_dir 02 $str_date $end_date $discharge_file_name discharge ${globalclone} ${lddmap_file} ${cellarea_m2} &

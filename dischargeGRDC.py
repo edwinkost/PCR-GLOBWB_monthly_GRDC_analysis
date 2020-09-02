@@ -219,7 +219,8 @@ class DischargeEvaluation(object):
         cloneMap = pcr.boolean(1)
         self.cell_size_in_arc_degree = vos.getMapAttributesALL(globalCloneMapFileName)['cellsize']
         
-        lddMap = pcr.lddrepair(pcr.readmap(lddMapFileName))
+        lddMap = pcr.lddrepair(pcr.ldd(pcr.readmap(lddMapFileName)))
+        lddMap = pcr.lddrepair(lddMap)
         cellArea = pcr.scalar(pcr.readmap(cellAreaMapFileName))
         
         # The landMaskClass map contains the nominal classes for all landmask regions. 
@@ -228,7 +229,7 @@ class DischargeEvaluation(object):
             landMaskClass = pcr.nominal(pcr.readmap(catchmentClassFileName))
 
         # model catchment areas and cordinates
-        catchmentAreaAll = pcr.catchmenttotal(cellArea, lddMap) / (1000*1000)  # unit: km2
+        catchmentAreaAll = pcr.catchmenttotal(cellArea, lddMap) / (1000.*1000.)  # unit: km2
         xCoordinate = pcr.xcoordinate(cloneMap)
         yCoordinate = pcr.ycoordinate(cloneMap)
         
@@ -283,8 +284,8 @@ class DischargeEvaluation(object):
                             pcr.boolean(1))
         
         # expanding the point
-        point = pcr.windowmajority(point, self.cell_size_in_arc_degree * 5.0)   # default
-        #~ point = pcr.windowmajority(point, 2.5)                                  # 2.5 degree
+        #~ point = pcr.windowmajority(point, self.cell_size_in_arc_degree * 5.0)   # default
+        point = pcr.windowmajority(point, 2.5)                                  # 2.5 degree
         point = pcr.ifthen(catchmentAreaAll > 0, point)
         point = pcr.boolean(point)
 

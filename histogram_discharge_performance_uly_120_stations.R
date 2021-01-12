@@ -199,7 +199,7 @@ output_file = paste(histogram_output_location,"correlation.pdf",sep="")
 ggsave(output_file, plot = histogram_performance, width = 22.5, height = 8.25,units='cm')
 histogram_performance_3 <- histogram_performance
 
-output_file = paste(histogram_output_location,"multi_histograms.pdf",sep="")
+output_file = paste(histogram_output_location,"/multi_histograms.pdf",sep="")
 pdf(output_file, width = 22.5/2.54, height = 25/2.54)
 multiplot(histogram_performance_1, histogram_performance_2, histogram_performance_3, cols=1)
 dev.off()

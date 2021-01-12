@@ -187,13 +187,13 @@ class DischargeEvaluation(object):
                 self.attributeGRDC["grdc_longitude_in_arc_degree"][str(id_from_grdc)] = grdc_longitude_in_arc_degree
                 self.attributeGRDC["grdc_catchment_area_in_km2"][str(id_from_grdc)]   = grdc_catchment_area_in_km2  
                 
-                logger.info("GRDC station "+str(id_from_file_name)+" ("+str(fileName)+") is used.")
+                logger.info("GRDC station "+str(id_from_grdc)+" ("+str(fileName)+") is used.")
                 # add grdc id to the list (that will be processed later)
                 self.list_of_grdc_ids.append(int(id_from_grdc))
 
             except:
                 
-                logger.info("GRDC station "+str(id_from_file_name)+" ("+str(fileName)+") is NOT used.")
+                logger.info("GRDC station "+str(id_from_grdc)+" ("+str(fileName)+") is NOT used.")
             
             
     def evaluateAllModelResults(self,globalCloneMapFileName,\

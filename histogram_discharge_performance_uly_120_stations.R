@@ -98,12 +98,14 @@ histogram_output_location    = "" # "/scratch/edwin/30min_27_march_2015/natural/
 histogram_output_location    = commandArgs()[5]
 
 # read all summary tables:
-performance_table = read.table(paste(folder_of_analysis_summaries,"01/summary.txt",sep=""),header=T,sep=";")
-for (i in 2:18) {
-if (i < 10) {table_file_name = paste(folder_of_analysis_summaries,"0",as.character(i),"/summary.txt",sep="")} else {
-             table_file_name = paste(folder_of_analysis_summaries,    as.character(i),"/summary.txt",sep="")} 
-performance_table = rbind(performance_table,read.table(table_file_name,header=T,sep=";"))
-}
+#~ performance_table = read.table(paste(folder_of_analysis_summaries,"01/summary.txt",sep=""),header=T,sep=";")
+#~ for (i in 2:18) {
+#~ if (i < 10) {table_file_name = paste(folder_of_analysis_summaries,"0",as.character(i),"/summary.txt",sep="")} else {
+#~              table_file_name = paste(folder_of_analysis_summaries,    as.character(i),"/summary.txt",sep="")} 
+#~ performance_table = rbind(performance_table,read.table(table_file_name,header=T,sep=";"))
+#~ }
+performance_table = read.table(paste(folder_of_analysis_summaries,"/summary.txt",sep=""),header=T,sep=";")
+
 
 # use only the data with number of pairs >= 2 years (24 months)
 performance_table = performance_table[which(performance_table$num_of_month_pairs >= 24),]

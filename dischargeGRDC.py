@@ -106,6 +106,9 @@ class DischargeEvaluation(object):
         # Currently, we just use monthly observation.
         filesIndirectoryGRDC = directoryGRDC+'/*.mon'
         
+        # to accomodate the new file name format (for the files requested by Niko, e.g. 1196100_Q_Month.txt)
+        filesIndirectoryGRDC = directoryGRDC+'/*'
+        
         fileList = glob.glob(filesIndirectoryGRDC) 
         
         for fileName in fileList:

@@ -25,8 +25,10 @@ globalAnalysisOutputDir                  = None # "/scratch-shared/edwinhs/05min
 cleanOutputDir                           = True                         # option to clean analysisOutputDir   # FIXME: This must always be True 		
 
 # directory for GRDC files:
-globalDirectoryGRDC    = "/projects/0/dfguu/users/edwin/data/observation_data/grdc_monthly_data_splitted/"           # "/scratch/edwin/observation_data/grdc_monthly_data_splitted/"
-# This directory will contain several sub-folders (18 sub-folders per 10 Jun 2014)
+# ~ globalDirectoryGRDC = "/projects/0/dfguu/users/edwin/data/observation_data/grdc_monthly_data_splitted/"           # "/scratch/edwin/observation_data/grdc_monthly_data_splitted/"
+# ~ # This directory will contain several sub-folders (18 sub-folders per 10 Jun 2014)
+
+globalDirectoryGRDC     = "/scratch-shared/edwinhs/discharge_evaluation_ulysses_2021-01-XX/grdc_observation_niko"
 
 # for 5min results of PCR-GLOBWB 2.0
 #~ globalCloneMapFileName = "/projects/0/dfguu/data/hydroworld/PCRGLOBWB20/input5min/routing/lddsound_05min.map"        # "/data/hydroworld/PCRGLOBWB20/input5min/routing/lddsound_05min.map"

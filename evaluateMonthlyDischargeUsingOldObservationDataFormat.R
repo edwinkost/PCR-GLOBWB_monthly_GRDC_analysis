@@ -119,11 +119,13 @@ simulation$date = as.Date(simulation$date,"%Y-%m-%d")
 
 # load the GRDC data
 grdcTableOriginal <- read.table(grdcFile,header=T,sep=";")
+
+grdcTableOriginal <- grdcTableOriginal[which(grdcTableOriginal$Flag != 99),]    # ignore data with Flag = 99 (usage not recommended by the provider)
 #
 # alternative 1: using 'selective' calculated data
 grdcTable <- grdcTableOriginal
 grdcTable <- grdcTable[which(grdcTable$Calculated >= 0.0),]
-grdcTable <- grdcTable[which(grdcTable$Flag < 50),]					    # ignore data that are calculated with more than 50% missing daily values
+grdcTable <- grdcTable[which(grdcTable$Flag < 325),]					# ignore data that are calculated with more than 25 missing daily values
 grdcTable <- grdcTable[which(abs((grdcTable$Calculated-
                                   grdcTable$Original)/
                                   grdcTable$Calculated) < 500.00),]		# ignore data that have huge difference with original data

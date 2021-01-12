@@ -124,14 +124,18 @@ class DischargeEvaluation(object):
         allLines = allLines.replace("\r","") 
         allLines = allLines.split("\n")
 
-        # get grdc ids (from files) and check their consistency with their file names  
-        id_from_file_name =  int(os.path.basename(fileName).split(".")[0])
-        id_from_grdc = None
-        if id_from_file_name == int(allLines[ 8].split(":")[1].replace(" ","")):
-            id_from_grdc = int(allLines[ 8].split(":")[1].replace(" ",""))
-        else:
-            logger.info("GRDC station "+str(id_from_file_name)+" ("+str(fileName)+") is NOT used.")
+        # ~ # get grdc ids (from files) and check their consistency with their file names  
+        # ~ id_from_file_name =  int(os.path.basename(fileName).split(".")[0])
+        # ~ id_from_grdc = None
+        # ~ if id_from_file_name == int(allLines[ 8].split(":")[1].replace(" ","")):
+            # ~ id_from_grdc = int(allLines[ 8].split(":")[1].replace(" ",""))
+        # ~ else:
+            # ~ logger.info("GRDC station "+str(id_from_file_name)+" ("+str(fileName)+") is NOT used.")
             
+        # get grdc ids (from files only)  
+        id_from_grdc = None
+        id_from_grdc = int(allLines[ 8].split(":")[1].replace(" ",""))
+
         if id_from_grdc != None:
             
             # initiate the dictionary values for each station (put all values to "NA")

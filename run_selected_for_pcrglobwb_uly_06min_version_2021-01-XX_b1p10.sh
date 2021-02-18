@@ -44,4 +44,5 @@ cellarea_m2="/scratch-shared/edwinhs/discharge_evaluation_ulysses_2021-01-XX/map
 #~ -rw-r----- 1 edwinhs edwinhs 4.9M Nov 25 11:32 land_mask_only.map
 #~ -rw-r--r-- 1 edwinhs edwinhs 4.9M Nov 25 11:32 lddsound_06min_version_202007XX_for_ulysses.map
 
-python $python_script_file_used $pcrglobwb_output_folder $global_analysis_out_dir selected_for_uly $str_date $end_date $discharge_file_name discharge ${globalclone} ${lddmap_file} ${cellarea_m2} &
+python $python_script_file_used $pcrglobwb_output_folder $global_analysis_out_dir selected_for_uly $str_date $end_date $discharge_file_name discharge ${globalclone} ${lddmap_file} ${cellarea_m2}
+

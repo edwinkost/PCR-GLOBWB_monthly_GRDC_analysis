@@ -12,24 +12,13 @@
 python_script_file_used="0_main_analyze_discharge_flexible_06min.py"
 
 
-#~ edwinhs@int1.bullx:/scratch-shared/edwinhs/pcrglobwb_aqueduct_2021_develop$ pwd
-#~ /scratch-shared/edwinhs/pcrglobwb_aqueduct_2021_develop
-#~ edwinhs@int1.bullx:/scratch-shared/edwinhs/pcrglobwb_aqueduct_2021_develop$ ls -lah *
-#~ first_test_05min:
-#~ total 4.2G
-#~ drwxr-xr-x 2 edwinhs edwinhs 4.0K Feb 19 00:01 .
-#~ drwxr-xr-x 4 edwinhs edwinhs 4.0K Feb 19 00:01 ..
-#~ -rw-r--r-- 1 edwinhs edwinhs 4.2G Jan 29 15:11 discharge_monthAvg_output.nc
+#~ sutan101@gpu038.cluster:/scratch/depfg/sutan101/pcrglobwb_aqueduct_2021_develop/test_bristow-campbell/global_without_parallelixation/netcdf$ ls -lah discharge_monthAvg_output.nc
+#~ -r--r--r-- 1 sutan101 depfg 4.2G Apr  3 16:33 discharge_monthAvg_output.nc
 
-#~ first_test_30min:
-#~ total 119M
-#~ drwxr-xr-x 2 edwinhs edwinhs 4.0K Feb 19 00:00 .
-#~ drwxr-xr-x 4 edwinhs edwinhs 4.0K Feb 19 00:01 ..
-#~ -rw-r--r-- 1 edwinhs edwinhs 119M Jan 25 19:13 discharge_monthAvg_output.nc
 
-pcrglobwb_output_folder="/scratch-shared/edwinhs/pcrglobwb_aqueduct_2021_develop/first_test_05min/"
+pcrglobwb_output_folder="/scratch/depfg/sutan101/pcrglobwb_aqueduct_2021_develop/test_bristow-campbell/global_without_parallelixation/netcdf/"
 
-global_analysis_out_dir=${pcrglobwb_output_folder}"/monthly_discharge_evaluation/"
+global_analysis_out_dir="/scratch/depfg/sutan101/pcrglobwb_aqueduct_2021_develop/test_bristow-campbell/global_without_parallelixation/monthly_discharge_evaluation/"
 
 discharge_file_name="discharge_monthAvg_output.nc"
 

@@ -12,13 +12,12 @@
 python_script_file_used="0_main_analyze_discharge_flexible_06min.py"
 
 
-#~ sutan101@gpu038.cluster:/scratch/depfg/sutan101/pcrglobwb_aqueduct_2021_develop/test_bristow-campbell/global_without_parallelixation/netcdf$ ls -lah discharge_monthAvg_output.nc
-#~ -r--r--r-- 1 sutan101 depfg 4.2G Apr  3 16:33 discharge_monthAvg_output.nc
+#~ edwinhs@tcn674.bullx:/scratch-shared/edwinhs/pcrglobwb_aqueduct_2021_develop/test_with_bristow_campbell$ ls -lah *
+#~ -r--r--r-- 1 edwinhs edwinhs 4.2G Apr  3 16:33 discharge_monthAvg_output.nc
 
+pcrglobwb_output_folder="/scratch-shared/edwinhs/pcrglobwb_aqueduct_2021_develop/test_with_bristow_campbell/"
 
-pcrglobwb_output_folder="/scratch/depfg/sutan101/pcrglobwb_aqueduct_2021_develop/test_bristow-campbell/global_without_parallelixation/netcdf/"
-
-global_analysis_out_dir="/scratch/depfg/sutan101/pcrglobwb_aqueduct_2021_develop/test_bristow-campbell/global_without_parallelixation/monthly_discharge_evaluation/"
+global_analysis_out_dir=${pcrglobwb_output_folder}"/monthly_discharge_evaluation/"
 
 discharge_file_name="discharge_monthAvg_output.nc"
 

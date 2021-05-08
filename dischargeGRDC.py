@@ -291,8 +291,10 @@ class DischargeEvaluation(object):
                             pcr.boolean(1))
         
         # expanding the point
-        point = pcr.windowmajority(point, self.cell_size_in_arc_degree * 5.0)   # default
-        # ~ point = pcr.windowmajority(point, 2.5)                              # 2.5 degree
+        # ~ point = pcr.windowmajority(point, self.cell_size_in_arc_degree * 5.0)   # default
+
+        point = pcr.windowmajority(point, 2.5)                                      # 2.5 degree
+
         point = pcr.ifthen(catchmentAreaAll > 0, point)
         point = pcr.boolean(point)
 

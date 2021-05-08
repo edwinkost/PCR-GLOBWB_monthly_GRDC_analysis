@@ -294,9 +294,9 @@ class DischargeEvaluation(object):
 
         # ~ point = pcr.windowmajority(point, self.cell_size_in_arc_degree * 5.0)   # default
 
-        # ~ point = pcr.windowmajority(point, 2.5)                                  # 2.5 degree, too slow for 5 arcmin
+        # ~ point = pcr.windowmajority(point, 2.50)                                 # 2.5 degree, too slow for 5 arcmin
 
-        point     = pcr.windowmajority(point, 1.00)                                 #
+        point     = pcr.windowmajority(point, 1.50)                                 #
 
         point = pcr.ifthen(catchmentAreaAll > 0, point)
         point = pcr.boolean(point)

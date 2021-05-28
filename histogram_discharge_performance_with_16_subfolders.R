@@ -198,6 +198,15 @@ output_file = paste(histogram_output_location,"correlation.pdf",sep="")
 ggsave(output_file, plot = histogram_performance, width = 22.5, height = 8.25,units='cm')
 histogram_performance_3 <- histogram_performance
 
+histogram_performance <- ggplot(performance_table, aes( x = cluster_ns_efficiency, fill = cluster_upstream_areas)) + 
+                         geom_histogram(aes( y = (..count..)/sum(..count..)), binwidth = 1) + 
+                         scale_fill_manual(values = (rev(brewer.pal(9,"RdYlBu"))), labels = c("NA", 0, 5000, 10000, 25000, 50000, 75000, 100000, 250000)) + 
+                         scale_x_discrete(limits = seq(1,12,1), labels = c(seq(-1.0,1.0,0.2),"NA")) +
+                         scale_y_continuous(limits = c(0,0.5))
+output_file = paste(histogram_output_location,"histogram_ns_efficiency.pdf",sep="")
+ggsave(output_file, plot = histogram_performance, width = 22.5, height = 8.25,units='cm')
+histogram_performance_2 <- histogram_performance
+
 output_file = paste(histogram_output_location,"multi_histograms.pdf",sep="")
 pdf(output_file, width = 22.5/2.54, height = 25/2.54)
 multiplot(histogram_performance_1, histogram_performance_2, histogram_performance_3, cols=1)

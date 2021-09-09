@@ -21,7 +21,7 @@ global_analysis_out_dir=${pcrglobwb_output_folder}"/monthly_discharge_evaluation
 discharge_file_name="discharge_monthAvg_output_1979-2019.nc"
 
 str_date=1979-01-31
-end_date=2016-12-31
+end_date=2019-12-31
 
 
 #~ edwinhs@int1.bullx:/projects/0/dfguu/data/hydroworld/pcrglobwb2_input_release/version_2019_11_beta_extended/pcrglobwb2_input/global_05min/routing/ldd_and_cell_area$ ls -lah *

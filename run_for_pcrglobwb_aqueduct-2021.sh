@@ -9,6 +9,12 @@
 # send mail to this address
 #SBATCH --mail-user=edwinkost@gmail.com
 
+
+. /home/edwin/load_all_default.sh
+
+module load 2021
+module load R/4.1.0-foss-2021a
+
 python_script_file_used="0_main_analyze_discharge_flexible_aqueduct-2021.py"
 
 pcrglobwb_output_folder="/scratch-shared/edwin/discharge_aqueduct_2021/"

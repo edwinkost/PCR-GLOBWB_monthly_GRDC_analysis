@@ -10,10 +10,11 @@
 #SBATCH --mail-user=edwinkost@gmail.com
 
 
-. /home/edwin/load_all_default.sh
-
 module load 2021
 module load R/4.1.0-foss-2021a
+
+. /home/edwin/load_all_default.sh
+
 
 python_script_file_used="0_main_analyze_discharge_flexible_aqueduct-2021.py"
 
@@ -37,4 +38,4 @@ lddmap_file="/projects/0/dfguu/users/edwin/data/pcrglobwb_input_aqueduct/version
 globalclone=lddmap_file
 cellarea_m2="/projects/0/dfguu/users/edwin/data/pcrglobwb_input_aqueduct/version_2021-09-16/general/cdo_gridarea_clone_global_05min_correct_lats.nc.map" 
 
-python $python_script_file_used $pcrglobwb_output_folder $global_analysis_out_dir 30 $str_date $end_date $discharge_file_name discharge ${globalclone} ${lddmap_file} ${cellarea_m2}
+python3 $python_script_file_used $pcrglobwb_output_folder $global_analysis_out_dir 30 $str_date $end_date $discharge_file_name discharge ${globalclone} ${lddmap_file} ${cellarea_m2}

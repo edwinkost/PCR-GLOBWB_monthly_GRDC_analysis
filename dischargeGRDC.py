@@ -119,7 +119,7 @@ class DischargeEvaluation(object):
 
         # read the file
         print(fileName)
-        f = open(fileName) ; allLines = f.read() ; f.close()
+        f = open(fileName, 'r', encoding = "utf-8") ; allLines = f.read() ; f.close()
         
         # split the content of the file into several lines
         allLines = allLines.replace("\r","") 

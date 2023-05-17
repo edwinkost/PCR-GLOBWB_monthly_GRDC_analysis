@@ -32,7 +32,7 @@ class DischargeEvaluation(object):
         
         if using_grdc_catal:
             grdc_catal_file = "grdc_station_catal/grdc_stations/GRDC_Stations.csv"
-            self.grdc_catal = csv.DictReader(open(grdc_catal_file))
+            self.grdc_catal = csv.DictReader(open(grdc_catal_file), delimiter=';')
             
         logger.info('Evaluating the model results (monthly discharge) stored in %s.', modelOutputFolder)
         

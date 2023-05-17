@@ -118,6 +118,7 @@ class DischargeEvaluation(object):
     def getAttributeForEachStation(self,fileName):
 
         # read the file
+        print(fileName)
         f = open(fileName) ; allLines = f.read() ; f.close()
         
         # split the content of the file into several lines

@@ -200,6 +200,9 @@ class DischargeEvaluation(object):
                 grdc_catchment_area_in_km2_table = get_userstate_by_userid(userid = id_from_grdc, column_id_name = "grdc_no", column_state_name = "area"   , table = self.grdc_catal)
                 if grdc_catchment_area_in_km2_table > 0.0: grdc_catchment_area_in_km2 = grdc_catchment_area_in_km2_table
                 
+                print(country_code)
+                pietje
+                
                 self.attributeGRDC["id_from_grdc"][str(id_from_grdc)]                 = id_from_grdc
                 self.attributeGRDC["grdc_file_name"][str(id_from_grdc)]               = fileName
                 self.attributeGRDC["river_name"][str(id_from_grdc)]                   = river_name

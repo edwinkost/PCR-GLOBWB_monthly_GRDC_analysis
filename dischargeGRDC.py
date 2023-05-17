@@ -89,7 +89,7 @@ class DischargeEvaluation(object):
                 self.randomDirList.append(randomDir) 
             except:
                 # generate another random directory
-                randomDir = tmpDir + vos.get_random_word()
+                randomDir = tmpDir + vos.get_random_word(8)
         return randomDir        
         # PS: do not forget to delete this random directory.
 
@@ -341,15 +341,15 @@ class DischargeEvaluation(object):
         masks = pcr.ifthen(pcr.boolean(point), landMaskClass)                                          
 
         # export the difference to temporary files: maps and txt
-        catchmentAreaMap = randomDir+"/"+vos.get_random_word()+".area.map"
-        diffCatchAreaMap = randomDir+"/"+vos.get_random_word()+".dare.map"
-        diffDistanceMap  = randomDir+"/"+vos.get_random_word()+".dist.map"
-        diffLatitudeMap  = randomDir+"/"+vos.get_random_word()+".dlat.map"
-        diffLongitudeMap = randomDir+"/"+vos.get_random_word()+".dlon.map"
-        diffLatitudeMap  = randomDir+"/"+vos.get_random_word()+".dlat.map"
+        catchmentAreaMap = randomDir+"/"+vos.get_random_word(8)+".area.map"
+        diffCatchAreaMap = randomDir+"/"+vos.get_random_word(8)+".dare.map"
+        diffDistanceMap  = randomDir+"/"+vos.get_random_word(8)+".dist.map"
+        diffLatitudeMap  = randomDir+"/"+vos.get_random_word(8)+".dlat.map"
+        diffLongitudeMap = randomDir+"/"+vos.get_random_word(8)+".dlon.map"
+        diffLatitudeMap  = randomDir+"/"+vos.get_random_word(8)+".dlat.map"
         #
-        maskMap          = randomDir+"/"+vos.get_random_word()+".mask.map"
-        diffColumnFile   = randomDir+"/"+vos.get_random_word()+".cols.txt" # output
+        maskMap          = randomDir+"/"+vos.get_random_word(8)+".mask.map"
+        diffColumnFile   = randomDir+"/"+vos.get_random_word(8)+".cols.txt" # output
         #
         pcr.report(pcr.ifthen(point,modelCatchmentArea), catchmentAreaMap)
         pcr.report(pcr.ifthen(point,diffCatchArea     ), diffCatchAreaMap)
@@ -483,7 +483,7 @@ class DischargeEvaluation(object):
             
             # make a randomDir containing txt files (attribute and model result):
             randomDir = self.makeRandomDir(tmpDir) 
-            txtModelFile = randomDir+"/"+vos.get_random_word()+".txt"
+            txtModelFile = randomDir+"/"+vos.get_random_word(8)+".txt"
             
             # write important attributes to a .atr file 
             #

@@ -11,6 +11,8 @@
 # send mail to this address
 #SBATCH --mail-user=edwinkost@gmail.com
 
+#SBATCH -J grdc_rerun
+## this is the job name
 
 module load 2021
 module load R/4.1.0-foss-2021a
@@ -22,7 +24,7 @@ python_script_file_used="0_main_analyze_discharge_flexible_aqueduct-2021.py"
 
 pcrglobwb_output_folder="/scratch-shared/edwin/discharge_aqueduct_2021/"
 
-global_analysis_out_dir=${pcrglobwb_output_folder}"/validation/"
+global_analysis_out_dir=${pcrglobwb_output_folder}"/validation_1979-2019/"
 
 discharge_file_name="pcrglobwb_cmip6-isimip3-gswp3-w5e5_image-aqueduct_historical-reference_discharge_global_monthly-average_1960_2019_basetier1.nc"
 

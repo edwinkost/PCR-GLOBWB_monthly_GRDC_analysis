@@ -22,7 +22,7 @@ import csv
 # function to return state
 def get_userstate_by_userid(userid, column_id_name, column_state_name, table):
     for entry in table:
-        if userid == entry[column_state_name]:
+        if userid == entry[column_id_name]:
             return entry[column_state_name]
 
 class DischargeEvaluation(object):

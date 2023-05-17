@@ -16,11 +16,24 @@ logger = logging.getLogger(__name__)
 # the following dictionary is needed to avoid open and closing files
 filecache = dict()
 
+import csv
+# import csv module to read csv files
+
+# function to return state
+def get_userstate_by_userid(userid, column_id_name, column_state_name, table):
+    for entry in table:
+        if userid == entry[column_state_name]:
+            return entry[column_state_name]
+
 class DischargeEvaluation(object):
 
-    def __init__(self, modelOutputFolder,startDate=None,endDate=None,temporary_directory=None):
+    def __init__(self, modelOutputFolder, startDate = None, endDate = None, temporary_directory = None, using_grdc_catal = True):
         object.__init__(self)
         
+        if using_grdc_catal:
+            grdc_catal_file = "grdc_station_catal/grdc_stations/GRDC_Stations.csv"
+            self.grdc_catal = csv.DictReader(open(grdc_catal_file))
+            
         logger.info('Evaluating the model results (monthly discharge) stored in %s.', modelOutputFolder)
         
         self.startDate = startDate
@@ -182,6 +195,11 @@ class DischargeEvaluation(object):
                 except:
                     country_code = "NA"
 
+                # try to get info from grdc catal
+                country_code                     = get_userstate_by_userid(userid = id_from_grdc, column_id_name = "grdc_no", column_state_name = "country", table = self.grdc_catal)
+                grdc_catchment_area_in_km2_table = get_userstate_by_userid(userid = id_from_grdc, column_id_name = "grdc_no", column_state_name = "area"   , table = self.grdc_catal)
+                if grdc_catchment_area_in_km2_table > 0.0: grdc_catchment_area_in_km2 = grdc_catchment_area_in_km2_table
+                
                 self.attributeGRDC["id_from_grdc"][str(id_from_grdc)]                 = id_from_grdc
                 self.attributeGRDC["grdc_file_name"][str(id_from_grdc)]               = fileName
                 self.attributeGRDC["river_name"][str(id_from_grdc)]                   = river_name

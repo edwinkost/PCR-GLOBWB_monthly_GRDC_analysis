@@ -99,7 +99,7 @@ class DischargeEvaluation(object):
         cmd = 'rm -r '+randomDir+"*"
         print(cmd); os.system(cmd)
         self.randomDirList.remove(randomDir)
-        if self.randomDirList != []: print "WARNING!: randomDir(s) found: ", self.randomDirList  
+        if self.randomDirList != []: logger.warning("WARNING!: randomDir(s) found: ", self.randomDirList)  
 
     def get_grdc_attributes(self, directoryGRDC):
         
@@ -112,7 +112,7 @@ class DischargeEvaluation(object):
         fileList = glob.glob(filesIndirectoryGRDC) 
         
         for fileName in fileList:
-            print fileName
+            print(fileName)
             self.getAttributeForEachStation(fileName)
 
     def getAttributeForEachStation(self,fileName):
@@ -425,11 +425,11 @@ class DischargeEvaluation(object):
             
             if ncFile in filecache.keys():
                 f = filecache[ncFile]
-                print "Cached: ", ncFile
+                print("Cached: ", ncFile)
             else:
                 f = nc.Dataset(ncFile)
                 filecache[ncFile] = f
-                print "New: ", ncFile
+                print("New: ", ncFile)
 
             #
             varName = pcrglobwb_output["netcdf_variable_name"]

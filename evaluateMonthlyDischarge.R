@@ -261,8 +261,10 @@ outplott <- ggplot()
 outplott <- outplott +
 #~  layer(data = mergedTable, mapping = aes(x = date, y = observation ), geom = "line", colour =  "red", size = 0.90) + # measurement
 #~  layer(data = mergedTable, mapping = aes(x = date, y = simulation  ), geom = "line", colour = "blue", size = 0.35) + # model results
- layer(data = mergedTable, mapping = aes(x = date, y = observation), geom = "line" , params = list(col =  "red", size = 0.90)) + # measurement
- layer(data = mergedTable, mapping = aes(x = date, y = simulation ), geom = "line" , params = list(col = "blue", size = 0.35)) + # model results
+#~  layer(data = mergedTable, mapping = aes(x = date, y = observation), geom = "line" , params = list(col =  "red", size = 0.90)) + # measurement
+#~  layer(data = mergedTable, mapping = aes(x = date, y = simulation ), geom = "line" , params = list(col = "blue", size = 0.35)) + # model results
+ geom_line(data = mergedTable, mapping = aes(x = date, y = observation), color =  "red", size = 0.90) + # measurement
+ geom_line(data = mergedTable, mapping = aes(x = date, y = simulation ), color = "blue", size = 0.35) + # model results
 #
  geom_text(aes(x = x_info_text, y = 1.00*y_max, label = attributeStat[1]), size = 2.5,hjust = 0) +
  geom_text(aes(x = x_info_text, y = 0.95*y_max, label = attributeStat[2]), size = 2.5,hjust = 0) +

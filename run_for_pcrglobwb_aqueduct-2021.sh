@@ -1,7 +1,9 @@
 #!/bin/bash
 #SBATCH -N 1
 #SBATCH -t 119:59:00
-#SBATCH -p normal
+#SBATCH -p thin
+#SBATCH -n 32
+## this is the number of cores, you can set this to 32, 64, 96 or 128 (use 128 if you want the node reserved for you only)
 
 # mail alert at start, end and abortion of execution
 #SBATCH --mail-type=ALL

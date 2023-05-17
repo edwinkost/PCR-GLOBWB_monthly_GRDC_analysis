@@ -80,7 +80,7 @@ class DischargeEvaluation(object):
     def makeRandomDir(self,tmpDir):
 
         # make a random (temporary) directory (default: in the memory)
-        randomDir = tmpDir + vos.get_random_word()
+        randomDir = tmpDir + vos.get_random_word(8)
         directoryExist = True
         while directoryExist:
             try:
@@ -119,6 +119,9 @@ class DischargeEvaluation(object):
 
         # read the file
         print(fileName)
+
+        #~ f = open(fileName) ; allLines = f.read() ; f.close()
+
         f = open(fileName, 'r', encoding = "ISO-8859-1") ; allLines = f.read() ; f.close()
         
         # split the content of the file into several lines

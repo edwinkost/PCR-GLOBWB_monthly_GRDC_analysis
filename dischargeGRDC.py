@@ -19,11 +19,30 @@ filecache = dict()
 import csv
 # import csv module to read csv files
 
-# function to return state
-def get_userstate_by_userid(userid, column_id_name, column_state_name, table):
-    for entry in table:
-        if userid == entry[column_id_name]:
-            return entry[column_state_name]
+
+def get_country_by_grdc_no(account_id):
+    # read the file
+    file = open(r"grdc_station_catal/grdc_stations/GRDC_Stations.csv")
+    # convert file to Dictionary
+    account_list = csv.DictReader(file, delimiter = ";")
+    # print(account_list)
+    # loop through the records
+    for entry in account_list:
+        # condition to match
+        if account_id == entry['grdc_no']:
+            return entry['country']
+
+def get_area_by_grdc_no(account_id):
+    # read the file
+    file = open(r"grdc_station_catal/grdc_stations/GRDC_Stations.csv")
+    # convert file to Dictionary
+    account_list = csv.DictReader(file, delimiter = ";")
+    # print(account_list)
+    # loop through the records
+    for entry in account_list:
+        # condition to match
+        if account_id == entry['grdc_no']:
+            return entry['area']
 
 class DischargeEvaluation(object):
 
@@ -195,12 +214,22 @@ class DischargeEvaluation(object):
                 except:
                     country_code = "NA"
 
-                # try to get info from grdc catal
-                country_code                     = get_userstate_by_userid(userid = id_from_grdc, column_id_name = "grdc_no", column_state_name = "country", table = self.grdc_catal)
-                grdc_catchment_area_in_km2_table = get_userstate_by_userid(userid = id_from_grdc, column_id_name = "grdc_no", column_state_name = "area"   , table = self.grdc_catal)
-                if grdc_catchment_area_in_km2_table > 0.0: grdc_catchment_area_in_km2 = grdc_catchment_area_in_km2_table
+                # try to get country info from grdc catalogue
+                try:
+                    country_code = get_country_by_grdc_no(str(id_from_grdc))
+                    country_code = re.sub("[^A-Za-z]", "_", country_code)
+                except:
+                    pass
                 
-                
+                # try to get catchment area from grdc catalogue
+                try:
+                    grdc_catchment_area_in_km2 = float(get_area_by_grdc_no(str(id_from_grdc)))
+                    if grdc_catchment_area_in_km2 <= 0.0:\
+                       grdc_catchment_area_in_km2  = "NA" 
+                    print("catchment area is taken from the GRDC catalogue")
+                except:
+                    pass
+
                 self.attributeGRDC["id_from_grdc"][str(id_from_grdc)]                 = id_from_grdc
                 self.attributeGRDC["grdc_file_name"][str(id_from_grdc)]               = fileName
                 self.attributeGRDC["river_name"][str(id_from_grdc)]                   = river_name

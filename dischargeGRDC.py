@@ -201,7 +201,7 @@ class DischargeEvaluation(object):
                 if grdc_catchment_area_in_km2_table > 0.0: grdc_catchment_area_in_km2 = grdc_catchment_area_in_km2_table
                 
                 print(country_code)
-                pietje
+                # ~ pietje
                 
                 self.attributeGRDC["id_from_grdc"][str(id_from_grdc)]                 = id_from_grdc
                 self.attributeGRDC["grdc_file_name"][str(id_from_grdc)]               = fileName

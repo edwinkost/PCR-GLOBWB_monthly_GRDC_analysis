@@ -136,7 +136,7 @@ performance_table = performance_table_complete
 performance_table = performance_table[which(performance_table$num_of_month_pairs >= 36),]
 
 # use only grdc catchment area > 10 km2
-performance_table = performance_table[which(performance_table$grdc_catchment_area_in_km2 >= 50),]
+performance_table = performance_table[which(performance_table$grdc_catchment_area_in_km2 >= 100),]
 
 #~ # calculating the deviation in catchment area, if larger than 20% will be ignored - NOT USED
 #~ area_dev            = abs(performance_table$model_catchment_area_in_km2 - performance_table$grdc_catchment_area_in_km2)

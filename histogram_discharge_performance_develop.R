@@ -187,7 +187,7 @@ if (length(performance_table$cluster_ns_efficiency) > 0) {
 # CLASSIFICATION based on "correlation" (unit: dimensionless)
 #############################################################################################################################################################
 performance_table$correlation[which(performance_table$correlation < -1.0)] = -1.0
-cluster_correlation = classify_values(input_values = performance_table$correlation, breaks = c(seq(-1.0,1,0.1),NA))
+cluster_correlation = classify_values(input_values = performance_table$correlation, breaks = c(seq(-1.0,1,0.2),NA))
 if (length(performance_table$cluster_correlation) > 0) {
            performance_table$cluster_correlation = cluster_correlation} else {
            performance_table = cbind(performance_table,cluster_correlation)}

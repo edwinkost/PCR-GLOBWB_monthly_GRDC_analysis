@@ -196,8 +196,7 @@ if (length(performance_table$cluster_correlation) > 0) {
 histogram_performance <- ggplot(performance_table, aes( x = cluster_abs_deviation, fill = cluster_upstream_areas)) + 
                          geom_bar(aes( y = (..count..)/sum(..count..)), binwidth = 1) + 
                          scale_fill_manual(values = (rev(brewer.pal(9,"RdYlBu"))), labels = c("NA", 0, 5000, 10000, 25000, 50000, 75000, 100000, 250000)) + 
-                         scale_x_discrete(limits = seq(1,12,1), labels = c("NA", seq(0.0,1,0.1))) +
-                         scale_y_continuous(limits = c(0,0.25))
+                         scale_x_discrete(limits = seq(1,12,1), labels = c("NA", seq(0.0,1,0.1)))
 output_file = paste(histogram_output_location,"histogram_abs_deviation.pdf",sep="")
 ggsave(output_file, plot = histogram_performance, width = 22.5, height = 8.25,units='cm')
 histogram_performance_1 <- histogram_performance
@@ -205,8 +204,7 @@ histogram_performance_1 <- histogram_performance
 histogram_performance <- ggplot(performance_table, aes( x = cluster_ns_efficiency, fill = cluster_upstream_areas)) + 
                          geom_bar(aes( y = (..count..)/sum(..count..)), binwidth = 1) + 
                          scale_fill_manual(values = (rev(brewer.pal(9,"RdYlBu"))), labels = c("NA", 0, 5000, 10000, 25000, 50000, 75000, 100000, 250000)) + 
-                         scale_x_discrete(limits = seq(1,12,1), labels = c(seq(-1.0,1.0,0.2),"NA")) +
-                         scale_y_continuous(limits = c(0,0.5))
+                         scale_x_discrete(limits = seq(1,12,1), labels = c(seq(-1.0,1.0,0.2),"NA"))
 output_file = paste(histogram_output_location,"histogram_ns_efficiency.pdf",sep="")
 ggsave(output_file, plot = histogram_performance, width = 22.5, height = 8.25,units='cm')
 histogram_performance_2 <- histogram_performance
@@ -214,8 +212,7 @@ histogram_performance_2 <- histogram_performance
 histogram_performance <- ggplot(performance_table, aes( x = correlation, fill = cluster_upstream_areas)) + 
                          geom_bar(aes( y = (..count..)/sum(..count..)), binwidth = 0.2) + 
                          scale_fill_manual(values = (rev(brewer.pal(9,"RdYlBu"))), labels = c("NA", 0, 5000, 10000, 25000, 50000, 75000, 100000, 250000)) + 
-                         scale_x_continuous(limits = c(-1,1)) + 
-                         scale_y_continuous(limits = c(0,0.50))
+                         scale_x_continuous(limits = c(-1,1))
 output_file = paste(histogram_output_location,"correlation.pdf",sep="")
 ggsave(output_file, plot = histogram_performance, width = 22.5, height = 8.25,units='cm')
 histogram_performance_3 <- histogram_performance

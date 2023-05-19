@@ -97,9 +97,13 @@ folder_of_analysis_summaries = commandArgs()[4]
 histogram_output_location    = "" # "/scratch/edwin/30min_27_march_2015/natural/analysis/monthly_discharge/natural_30min_27_march_"
 histogram_output_location    = commandArgs()[5]
 
+# number of sub folders where evaluations were splitted
+number_of_sub_folders = as.integer(commandArgs()[6])
+
 # read all summary tables:
 performance_table = read.table(paste(folder_of_analysis_summaries,"01/summary.txt",sep=""),header=T,sep=";")
-for (i in 2:18) {
+#~ for (i in 2:18) {
+for (i in 2:number_of_sub_folders) {
 if (i < 10) {table_file_name = paste(folder_of_analysis_summaries,"0",as.character(i),"/summary.txt",sep="")} else {
              table_file_name = paste(folder_of_analysis_summaries,    as.character(i),"/summary.txt",sep="")} 
 performance_table = rbind(performance_table,read.table(table_file_name,header=T,sep=";"))

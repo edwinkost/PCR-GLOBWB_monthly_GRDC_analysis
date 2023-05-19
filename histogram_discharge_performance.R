@@ -227,3 +227,4 @@ multiplot(histogram_performance_1, histogram_performance_2, histogram_performanc
 dev.off()
 
 print(median(performance_table$kge_2009))
+print(median(performance_table$corelation))

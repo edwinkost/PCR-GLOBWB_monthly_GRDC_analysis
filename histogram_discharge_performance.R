@@ -109,9 +109,6 @@ if (i < 10) {table_file_name = paste(folder_of_analysis_summaries,"0",as.charact
 performance_table = rbind(performance_table,read.table(table_file_name,header=T,sep=";"))
 }
 
-# use only the data with number of pairs >= 2 years (24 months)
-performance_table = performance_table[which(performance_table$num_of_month_pairs >= 24),]
-
 # calculating simulated and observed runoff in mm per year (assume the number of day per year is 365.25)
 simulated_runoff  = performance_table$average_model * 24 * 60 * 60 * 365.25 * 1000 / (performance_table$model_catchment_area_in_km2 * 10^6)
 observed_runoff   = performance_table$average_observation  * 24 * 60 * 60 * 365.25 * 1000 / (performance_table$grdc_catchment_area_in_km2 * 10^6)
@@ -128,6 +125,28 @@ performance_table[is.na(performance_table)] = NA
 # write the performance_table to a txt file
 table_output_file = paste(histogram_output_location, "summary_all.txt", sep="")
 write.table(performance_table, table_output_file, sep = ";", row.names = FALSE, col.names = TRUE)
+
+# complete/original 
+performance_table_complete = performance_table 
+
+# using only some stations
+performance_table = performance_table_complete
+
+# use only the data with number of pairs >= 30 (months))
+performance_table = performance_table[which(performance_table$num_of_month_pairs >= 30),]
+
+# use only grdc catchment area > 10 km2
+performance_table = performance_table[which(performance_table$grdc_catchment_area_in_km2 >= 10),]
+
+#~ # calculating the deviation in catchment area, if larger than 20% will be ignored - NOT USED
+#~ area_dev            = abs(performance_table$model_catchment_area_in_km2 - performance_table$grdc_catchment_area_in_km2)
+#~ area_dev_in_percent = area_dev * 100. / performance_table$grdc_catchment_area_in_km2
+#~ performance_table   = performance_table[which(area_dev_in_percent >= 20), ]
+
+# write the selected performance_table to a txt file
+table_output_file = paste(histogram_output_location, "summary_selected.txt", sep="")
+write.table(performance_table, table_output_file, sep = ";", row.names = FALSE, col.names = TRUE)
+
 
 # CLASSIFICATION based on "simulated_runoff" (unit: mm/year)
 #############################################################################################################################################################
@@ -168,35 +187,33 @@ if (length(performance_table$cluster_ns_efficiency) > 0) {
 # CLASSIFICATION based on "correlation" (unit: dimensionless)
 #############################################################################################################################################################
 performance_table$correlation[which(performance_table$correlation < -1.0)] = -1.0
-cluster_correlation = classify_values(input_values = performance_table$correlation, breaks = c(seq(-1.0,1,0.1),NA))
+cluster_correlation = classify_values(input_values = performance_table$correlation, breaks = c(seq(-1.0,1,0.2),NA))
 if (length(performance_table$cluster_correlation) > 0) {
            performance_table$cluster_correlation = cluster_correlation} else {
            performance_table = cbind(performance_table,cluster_correlation)}
 
 
 histogram_performance <- ggplot(performance_table, aes( x = cluster_abs_deviation, fill = cluster_upstream_areas)) + 
-                         geom_histogram(aes( y = (..count..)/sum(..count..)), binwidth = 1) + 
+                         geom_bar(aes( y = (..count..)/sum(..count..)), binwidth = 1) + 
                          scale_fill_manual(values = (rev(brewer.pal(9,"RdYlBu"))), labels = c("NA", 0, 5000, 10000, 25000, 50000, 75000, 100000, 250000)) + 
-                         scale_x_discrete(limits = seq(1,12,1), labels = c("NA", seq(0.0,1,0.1))) +
-                         scale_y_continuous(limits = c(0,0.25))
+                         scale_x_discrete(limits = seq(1,12,1), labels = c("NA", seq(0.0,1,0.1)))
 output_file = paste(histogram_output_location,"histogram_abs_deviation.pdf",sep="")
 ggsave(output_file, plot = histogram_performance, width = 22.5, height = 8.25,units='cm')
 histogram_performance_1 <- histogram_performance
 
 histogram_performance <- ggplot(performance_table, aes( x = cluster_ns_efficiency, fill = cluster_upstream_areas)) + 
-                         geom_histogram(aes( y = (..count..)/sum(..count..)), binwidth = 1) + 
+                         geom_bar(aes( y = (..count..)/sum(..count..)), binwidth = 1) + 
                          scale_fill_manual(values = (rev(brewer.pal(9,"RdYlBu"))), labels = c("NA", 0, 5000, 10000, 25000, 50000, 75000, 100000, 250000)) + 
-                         scale_x_discrete(limits = seq(1,12,1), labels = c(seq(-1.0,1.0,0.2),"NA")) +
-                         scale_y_continuous(limits = c(0,0.5))
+                         scale_x_discrete(limits = seq(1,12,1), labels = c(seq(-1.0,1.0,0.2),"NA"))
 output_file = paste(histogram_output_location,"histogram_ns_efficiency.pdf",sep="")
 ggsave(output_file, plot = histogram_performance, width = 22.5, height = 8.25,units='cm')
 histogram_performance_2 <- histogram_performance
 
 histogram_performance <- ggplot(performance_table, aes( x = correlation, fill = cluster_upstream_areas)) + 
-                         geom_histogram(aes( y = (..count..)/sum(..count..)), binwidth = 0.2) + 
+                         geom_histogram() + 
+#~                          geom_bar(aes( y = (..count..)/sum(..count..)), binwidth = 0.2) + 
                          scale_fill_manual(values = (rev(brewer.pal(9,"RdYlBu"))), labels = c("NA", 0, 5000, 10000, 25000, 50000, 75000, 100000, 250000)) + 
-                         scale_x_continuous(limits = c(-1,1)) + 
-                         scale_y_continuous(limits = c(0,0.50))
+                         scale_x_continuous(limits = c(-1,1))
 output_file = paste(histogram_output_location,"correlation.pdf",sep="")
 ggsave(output_file, plot = histogram_performance, width = 22.5, height = 8.25,units='cm')
 histogram_performance_3 <- histogram_performance
@@ -205,3 +222,5 @@ output_file = paste(histogram_output_location,"multi_histograms.pdf",sep="")
 pdf(output_file, width = 22.5/2.54, height = 25/2.54)
 multiplot(histogram_performance_1, histogram_performance_2, histogram_performance_3, cols=1)
 dev.off()
+
+print(median(performance_table$kge_2009))

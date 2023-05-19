@@ -210,7 +210,7 @@ ggsave(output_file, plot = histogram_performance, width = 22.5, height = 8.25,un
 histogram_performance_2 <- histogram_performance
 
 histogram_performance <- ggplot(performance_table, aes( x = correlation, fill = cluster_upstream_areas)) + 
-                         geom_bar(aes( y = (..count..)/sum(..count..)), binwidth = 1) + 
+                         geom_histogram() + 
                          scale_fill_manual(values = (rev(brewer.pal(9,"RdYlBu"))), labels = c("NA", 0, 5000, 10000, 25000, 50000, 75000, 100000, 250000)) + 
                          scale_x_continuous(limits = c(-1,1))
 output_file = paste(histogram_output_location,"correlation.pdf",sep="")

@@ -96,11 +96,16 @@ NSeff_log_function <- function (Qobs, Qsim) {
 avg_obs_function <- function(obs, sim) mean(obs[which(!is.na(obs) & !is.na(sim))]) # PS: While calculating average we consider only complete pairs.
 avg_sim_function <- function(obs, sim) mean(sim[which(!is.na(obs) & !is.na(sim))]) # PS: While calculating average we consider only complete pairs.    
 #
+sd_obs_function  <- function(obs, sim)   sd(obs[which(!is.na(obs) & !is.na(sim))]) # PS: While calculating average we consider only complete pairs.
+sd_sim_function  <- function(obs, sim)   sd(sim[which(!is.na(obs) & !is.na(sim))]) # PS: While calculating average we consider only complete pairs.    
+#
 rmse_function    <- function(obs, pred) sqrt(mean((obs-pred)^2 ,na.rm=T))
  mae_function    <- function(obs, pred)      mean(abs(obs-pred),na.rm=T)
 bias_function    <- function(obs, pred) mean(pred[which(!is.na(obs) & !is.na(pred))]) - mean(obs[which(!is.na(obs) & !is.na(pred))])  # POSITIVE indicates that the average prediction is higher than average observation. 
 R2_function      <- function(obs, pred) summary(lm(obs ~ pred))$r.squared
 R2ad_function    <- function(obs, pred) summary(lm(obs ~ pred))$adj.r.squared
+
+
 
 # read the arguments
 args <- commandArgs()
@@ -228,12 +233,15 @@ R2          =        R2_function(mergedTable$observation, mergedTable$simulation
 R2ad        =      R2ad_function(mergedTable$observation, mergedTable$simulation)
 correlation =                cor(mergedTable$observation, mergedTable$simulation, use = "na.or.complete")
 #
-performance_character = paste(nPairs,avg_obs,avg_sim,KGE_2009,KGE_2012,NSeff,NSeff_log,rmse,mae,bias,R2,R2ad,correlation,sep=";")
+sd_obs      =    sd_obs_function(mergedTable$observation, mergedTable$simulation)
+sd_sim      =    sd_sim_function(mergedTable$observation, mergedTable$simulation)
+#
+performance_character = paste(nPairs,avg_obs,avg_sim,KGE_2009,KGE_2012,NSeff,NSeff_log,rmse,mae,bias,R2,R2ad,correlation,sd_obs,sd_sim,sep=";")
 
 # saving model performance to outputFile (in the memory)
 outputFile = paste(modelFile,".out",sep="")
 cat("observation file: ",grdcFile,"\n",sep="",file=outputFile)
-cat("nPairs;avg_obs;avg_sim;KGE_2009;KGE_2012;NSeff;NSeff_log;rmse;mae;bias;R2;R2ad;correlation","\n",sep="",file=outputFile,append=TRUE)
+cat("nPairs;avg_obs;avg_sim;KGE_2009;KGE_2012;NSeff;NSeff_log;rmse;mae;bias;R2;R2ad;correlation;sd_obs;sd_sim","\n",sep="",file=outputFile,append=TRUE)
 cat(performance_character,"\n",sep="",file=outputFile,append=TRUE)
 write.table(mergedTable,file=outputFile,sep=";",quote=FALSE,append=TRUE,row.names=FALSE)
 
@@ -276,8 +284,8 @@ outplott <- outplott +
  geom_text(aes(x = x_info_text, y = 0.65*y_max, label = attributeStat[8]), size = 2.5,hjust = 0) +
  geom_text(aes(x = x_info_text, y = 0.60*y_max, label = attributeStat[9]), size = 2.5,hjust = 0) +
 #
- geom_text(aes(x = x_info_text, y = 0.55*y_max, label = paste(" nPairs = ",     round(nPairs ,2),sep="")), size = 2.5,hjust = 0) +
- geom_text(aes(x = x_info_text, y = 0.50*y_max, label = paste(" avg obs/sim = ",round(avg_obs,2)," / ",round(avg_sim,2),sep="")), size = 2.5,hjust = 0) +
+ geom_text(aes(x = x_info_text, y = 0.55*y_max, label = paste(" nPairs = ",     round(nPairs     ,2),sep="")), size = 2.5,hjust = 0) +
+ geom_text(aes(x = x_info_text, y = 0.50*y_max, label = paste(" avg obs/sim = ",round(avg_obs    ,2)," / ",round(avg_sim,2),sep="")), size = 2.5,hjust = 0) +
 #
  geom_text(aes(x = x_info_text, y = 0.45*y_max, label = paste(" KGE_2009 = ",   round(KGE_2009   ,2),sep="")), size = 2.5,hjust = 0) +
  geom_text(aes(x = x_info_text, y = 0.40*y_max, label = paste(" KGE_2012 = ",   round(KGE_2012   ,2),sep="")), size = 2.5,hjust = 0) +
@@ -287,8 +295,8 @@ outplott <- outplott +
  geom_text(aes(x = x_info_text, y = 0.25*y_max, label = paste(" rmse = ",       round(rmse       ,2),sep="")), size = 2.5,hjust = 0) +
  geom_text(aes(x = x_info_text, y = 0.20*y_max, label = paste(" mae = ",        round(mae        ,2),sep="")), size = 2.5,hjust = 0) +
  geom_text(aes(x = x_info_text, y = 0.15*y_max, label = paste(" bias = ",       round(bias       ,2),sep="")), size = 2.5,hjust = 0) +
- geom_text(aes(x = x_info_text, y = 0.10*y_max, label = paste(" R2 = ",         round(R2         ,2),sep="")), size = 2.5,hjust = 0) +
- geom_text(aes(x = x_info_text, y = 0.05*y_max, label = paste(" R2ad = ",       round(R2ad       ,2),sep="")), size = 2.5,hjust = 0) +
+ geom_text(aes(x = x_info_text, y = 0.10*y_max, label = paste(" R2 / R2ad = ",  round(R2         ,2)," / ",round(R2ad   ,2),sep="")), size = 2.5,hjust = 0) +
+ geom_text(aes(x = x_info_text, y = 0.05*y_max, label = paste(" sd obs/sim = ", round(sd_obs     ,2)," / ",round(sd_sim ,2),sep="")), size = 2.5,hjust = 0) +
  geom_text(aes(x = x_info_text, y = 0.00*y_max, label = paste(" correlation = ",round(correlation,2),sep="")), size = 2.5,hjust = 0) +
 #~ #
  scale_y_continuous("discharge",limits=c(y_min,y_max)) +

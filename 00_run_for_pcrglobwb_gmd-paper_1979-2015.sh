@@ -24,7 +24,7 @@ python_script_file_used="0_main_analyze_discharge_flexible_aqueduct-2021.py"
 
 pcrglobwb_output_folder="/scratch-shared/edwin/discharge_gmd_paper/"
 
-global_analysis_out_dir=${pcrglobwb_output_folder}"/validation_1979-2015_gmd_v20230518/"
+global_analysis_out_dir=${pcrglobwb_output_folder}"/validation_1979-2015_gmd_v20230521/"
 
 discharge_file_name="discharge_monthAvg_output_1958-01-31_to_2015-12-31_zip.nc"
 

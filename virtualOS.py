@@ -531,7 +531,7 @@ def getFullPath(inputPath,absolutePath,completeFileName = True):
         if absolutePath.endswith('/'): 
             absolutePath = str(absolutePath)
         else:
-			absolutePath = str(absolutePath)+'/'    
+            absolutePath = str(absolutePath)+'/'    
         fullPath = str(absolutePath)+str(inputPath)
     
     if completeFileName:

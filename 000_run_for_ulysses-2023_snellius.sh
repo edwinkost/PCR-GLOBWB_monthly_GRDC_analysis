@@ -28,7 +28,7 @@
 
 # -- snellius genoa
 module load 2022
-module load R/R/4.2.1-foss-2022a
+module load R/4.2.1-foss-2022a
 module load Miniconda3/4.12.0
 unset PYTHONPATH
 source activate /home/hydrowld/.conda/envs/pcrglobwb_python3_2023-10-31

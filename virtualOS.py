@@ -38,11 +38,11 @@ def netcdf2PCRobjCloneWithoutTime(ncFile,varName,
     # Get netCDF file and variable name:
     if ncFile in filecache.keys():
         f = filecache[ncFile]
-        print "Cached: ", ncFile
+        print("Cached: ", ncFile)
     else:
         f = nc.Dataset(ncFile)
         filecache[ncFile] = f
-        print "New: ", ncFile
+        print("New: ", ncFile)
     
     #print ncFile
     #f = nc.Dataset(ncFile)  
@@ -126,11 +126,11 @@ def netcdf2PCRobjClone(ncFile,varName,dateInput,\
     
     if ncFile in filecache.keys():
         f = filecache[ncFile]
-        print "Cached: ", ncFile
+        print("Cached: ", ncFile)
     else:
         f = nc.Dataset(ncFile)
         filecache[ncFile] = f
-        print "New: ", ncFile
+        print("New: ", ncFile)
     
     varName = str(varName)
     
@@ -606,7 +606,7 @@ def getMapAttributesALL(cloneMap):
     co = ['mapattr -p %s ' %(cloneMap)]
     cOut,err = subprocess.Popen(co, stdout=subprocess.PIPE,stderr=open('/dev/null'),shell=True).communicate()
     if err !=None or cOut == []:
-        print "Something wrong with mattattr in virtualOS, maybe clone Map does not exist ? "
+        print("Something wrong with mattattr in virtualOS, maybe clone Map does not exist ? ")
         sys.exit()
     mapAttr = {'cellsize': float(cOut.split()[7]) ,\
                'rows'    : float(cOut.split()[3]) ,\
@@ -623,7 +623,7 @@ def getMapAttributes(cloneMap,attribute):
     cOut,err = subprocess.Popen(co, stdout=subprocess.PIPE,stderr=open('/dev/null'),shell=True).communicate()
     #print cOut
     if err !=None or cOut == []:
-        print "Something wrong with mattattr in virtualOS, maybe clone Map does not exist ? "
+        print("Something wrong with mattattr in virtualOS, maybe clone Map does not exist ? ")
         sys.exit()
     #print cOut.split()
     co = None; err = None
@@ -809,8 +809,8 @@ def waterBalanceCheck(fluxesIn,fluxesOut,preStorages,endStorages,processName,Pri
     a,b,c = getMinMaxMean(inMap + dsMap- outMap)
     if abs(a) > threshold or abs(b) > threshold:
         if PrintOnlyErrors: 
-            print "WBError %s Min %f Max %f Mean %f" %(processName,a,b,c)
-            print ""
+            print("WBError %s Min %f Max %f Mean %f" %(processName,a,b,c))
+            print("")
             
             #~ # for debugging:
             #~ error = inMap + dsMap- outMap
@@ -848,7 +848,7 @@ def waterBalance(  fluxesIn,  fluxesOut,  deltaStorages,  processName,   PrintOn
     # if abs(a) > 1e-5 or abs(b) > 1e-5:
     # if abs(a) > 1e-4 or abs(b) > 1e-4:
     if abs(a) > threshold or abs(b) > threshold:
-        print "WBError %s Min %f Max %f Mean %f" %(processName,a,b,c)
+        print("WBError %s Min %f Max %f Mean %f" %(processName,a,b,c))
     #    if abs(inflow + deltaS - outflow) > 1e-5:
     #        print "Water balance Error for %s on %s: in = %f\tout=%f\tdeltaS=%f\tBalance=%f" \
     #        %(processName,dateStr,inflow,outflow,deltaS,inflow + deltaS - outflow)

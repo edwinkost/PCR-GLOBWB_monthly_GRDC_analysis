@@ -38,7 +38,7 @@ cleanOutputDir                           = True                         # option
 
 # ~ globalDirectoryGRDC     = "/projects/0/dfguu/users/edwin/data/grdc_data_monthly_requested_on_2023013/txt_splitted/"
 
-globalDirectoryGRDC     = "/projects/0/dfguu/users/edwin/data/grdc_data_monthly_requested_on_2023013/txt_splitted/"
+globalDirectoryGRDC     = "/scratch/depfg/sutan101/data/grdc_data_monthly_requested_on_2023013/txt_splitted/"
 
 
 # for 5min results of PCR-GLOBWB 2.0

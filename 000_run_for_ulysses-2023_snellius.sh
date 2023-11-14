@@ -27,9 +27,9 @@
 
 
 # -- snellius genoa
+. /home/edwin/load_all_default.sh
 module load 2022
 module load R/R/4.2.1-foss-2022a
-
 
 python_script_file_used="000_main_analyze_discharge_flexible_ulysses-2023_snellius.py"
 

@@ -18,7 +18,7 @@
 
 
 # load pcraster etc
-. /eejit/home/sutan101/load_my_miniconda_and_my_default_env.sh  opt
+. /eejit/home/sutan101/load_my_miniconda_and_my_default_env.sh
 
 # load R
 . /eejit/home/sutan101/load_R.sh

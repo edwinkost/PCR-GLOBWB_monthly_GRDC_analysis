@@ -16,12 +16,11 @@
 #SBATCH -J grdc_val
 ## this is the job name
 
+# load pcraster etc
+. /eejit/home/sutan101/load_my_miniconda_and_my_default_env.sh
 
 # load R
 . /eejit/home/sutan101/load_R.sh
-
-# load pcraster etc
-. /eejit/home/sutan101/load_my_miniconda_and_my_default_env.sh
 
 
 python_script_file_used="000_main_analyze_discharge_flexible_ulysses-2023.py"

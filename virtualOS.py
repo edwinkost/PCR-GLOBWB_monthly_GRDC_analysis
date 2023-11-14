@@ -537,7 +537,7 @@ def getFullPath(inputPath,absolutePath,completeFileName = True):
     if completeFileName:
         if fullPath.endswith(suffix): 
             fullPath = str(fullPath)
-    	else:
+        else:
             fullPath = str(fullPath)+'/'    
 
     return fullPath    		

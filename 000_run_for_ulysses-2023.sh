@@ -17,8 +17,8 @@
 ## this is the job name
 
 
-# load pcraster etc
-. /eejit/home/sutan101/load_my_miniconda_and_my_default_env.sh  opt
+# using pcraster 4.1
+. /eejit/home/sutan101/load_pcraster_4.1.0_and_etc.sh
 
 # load R
 . /eejit/home/sutan101/load_R.sh

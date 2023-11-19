@@ -60,7 +60,7 @@ global_analysis_out_dir=${pcrglobwb_output_folder}"/"${SUB_OUT_FOLDER}"/"
 #~ str_date=1981-01-31
 #~ end_date=2019-12-31
 str_date=1981-01-31
-end_date=1999-12-31
+end_date=1998-12-31
 
 # 6 arcmin ulysses
 lddmap_file="/projects/0/dfguu/users/edwin/data/pcrglobwb_input_ulysses/pcrglobwb_ulysses_input_files_v2021-01-03/lddsound_06min_version_202007XX_for_ulysses.map"

@@ -98,7 +98,8 @@ class DischargeEvaluation(object):
                 "ns_efficiency",                
                 "ns_efficiency_log",
                 "kge_2009",
-                "kge_2012"]
+                "kge_2012",
+                "stdev_observation"]
         #
         for key in self.grdc_dict_keys: self.attributeGRDC[key] = {}                     
 
@@ -583,6 +584,8 @@ class DischargeEvaluation(object):
                 R2              = float(performance[10])
                 R2ad            = float(performance[11])
                 correlation     = float(performance[12])
+                sd_obs          = float(performance[13])
+                sd_sim          = float(performance[14])
                 #
                 table_file_name = self.tableOutputDir+"/"+\
                                                           str(self.attributeGRDC["country_code"][str(id)])+"_"+\
@@ -619,6 +622,8 @@ class DischargeEvaluation(object):
                 R2              = "NA"
                 R2ad            = "NA"
                 correlation     = "NA"
+                sd_obs          = "NA"
+                sd_sim          = "NA"
                 chart_file_name = "NA"
                 table_file_name = "NA"
         
@@ -640,6 +645,8 @@ class DischargeEvaluation(object):
             self.attributeGRDC["R2"][str(id)]                  = R2                                   
             self.attributeGRDC["R2_adjusted"][str(id)]         = R2ad                       
             self.attributeGRDC["correlation"][str(id)]         = correlation                
+            self.attributeGRDC["stdev_observation"][str(id)]   = sd_obs            
+            self.attributeGRDC["stdev_model"][str(id)]         = sd_sim                   
             self.attributeGRDC["chart_file_name"][str(id)]     = chart_file_name 
             self.attributeGRDC["table_file_name"][str(id)]     = table_file_name 
             

@@ -99,7 +99,8 @@ class DischargeEvaluation(object):
                 "ns_efficiency_log",
                 "kge_2009",
                 "kge_2012",
-                "stdev_observation"]
+                "stdev_observation",\
+                "stdev_model"]
         #
         for key in self.grdc_dict_keys: self.attributeGRDC[key] = {}                     
 

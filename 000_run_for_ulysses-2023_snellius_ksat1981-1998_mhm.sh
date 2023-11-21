@@ -20,8 +20,8 @@
 #SBATCH -J grdc_val
 ## this is the job name
 
-# exporting some variables
-#SBATCH --export DISCHARGE_FILENAME=${DISCHARGE_FILENAME},SUB_OUT_FOLDER=${SUB_OUT_FOLDER}
+#~ # exporting some variables
+#~ #SBATCH --export DISCHARGE_FILENAME=${DISCHARGE_FILENAME},SUB_OUT_FOLDER=${SUB_OUT_FOLDER}
 
 #~ # -- eejit (Note: You may have problems while plotting hydrographs with ggplot2) 
 #~ # load pcraster etc

@@ -558,7 +558,7 @@ class DischargeEvaluation(object):
 
                 cropData = cropData[int(idx_start):int(idx_end+1)]
                 cropTime = cropTime[int(idx_start):int(idx_end+1)]
-5
+
             cropData = np.column_stack((cropTime,cropData))
             print(cropData)
             

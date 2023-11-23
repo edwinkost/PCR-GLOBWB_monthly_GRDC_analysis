@@ -53,11 +53,11 @@ pcrglobwb_output_folder="/scratch-shared/edwin/pcrglobwb_ulysses_ksat_2023-11-17
 
 #~ discharge_file_name="discharge_monthAvg_output_1981-2019.nc"
 #~ discharge_file_name=${DISCHARGE_FILENAME}
-discharge_file_name="monthly_average_q_mhm_mrm_era5land_1981-2019_fix-time_fix-var-name.nc"
+discharge_file_name="monthly_average_q_mhm_mrm_era5land_1981-2019_fix-time_fix-var-name_1981-1998.nc"
 
 #~ global_analysis_out_dir=${pcrglobwb_output_folder}"/validation_1981-2019/"
 #~ global_analysis_out_dir=${pcrglobwb_output_folder}"/"${SUB_OUT_FOLDER}"/"
-global_analysis_out_dir=${pcrglobwb_output_folder}"/validation_mhm/"
+global_analysis_out_dir=${pcrglobwb_output_folder}"/validation_mhm_1981-1998/"
 
 #~ str_date=1981-01-31
 #~ end_date=2019-12-31

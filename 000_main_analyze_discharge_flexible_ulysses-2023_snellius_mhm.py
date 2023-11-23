@@ -25,8 +25,8 @@ pcrglobwb_output = {}
 # ~ pcrglobwb_output["folder"]           = "/scratch/depfg/sutan101/pcrglobwb_ulysses_reference_runs_version_2021-01-XX_b/1.50/" 
 pcrglobwb_output["folder"]               = None 
 pcrglobwb_output["netcdf_file_name"]     = "discharge_monthAvg_output_1981-2019.nc" 
-# ~ pcrglobwb_output["netcdf_variable_name"] = "discharge" 
-pcrglobwb_output["netcdf_variable_name"] = "q" 
+pcrglobwb_output["netcdf_variable_name"] = "discharge" 
+# ~ pcrglobwb_output["netcdf_variable_name"] = "q" 
 
 
 # output directory storing analysis results (results from this script)

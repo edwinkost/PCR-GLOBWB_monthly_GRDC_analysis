@@ -519,42 +519,52 @@ class DischargeEvaluation(object):
             cropTime = nctime[:]
 
             if (self.startDate != None) and (self.endDate != None):
-                try:
-                    idx_start = nc.date2index(self.startDate, \
-                                              nctime, \
-                                              calendar = nctime.calendar, \
-                                              select = 'exact')
-                except:
-                    try:
-                        idx_start = nc.date2index(self.startDate, \
-                                                  nctime, \
-                                                  calendar = nctime.calendar, \
-                                                  select = 'before')
-                        logger.warning("While reading the netcdf file, 'before' is used for determining the starting date/time index.")
-                    except:
-                        idx_start = nc.date2index(self.startDate, \
-                                                  nctime, \
-                                                  calendar = nctime.calendar, \
-                                                  select = 'after')
-                        logger.warning("While reading the netcdf file, 'after' is used for determining the starting date/time index.")
-                try:
-                    idx_end   = nc.date2index(self.endDate, \
-                                              nctime, \
-                                              calendar = nctime.calendar, \
-                                              select = 'exact')
-                except:
-                    try:
-                        idx_end   = nc.date2index(self.endDate, \
-                                                  nctime, \
-                                                  calendar = nctime.calendar, \
-                                                  select = 'after')
-                        logger.warning("While reading the netcdf file, 'after' is used for determining the starting date/time index.")
-                    except:
-                        idx_end   = nc.date2index(self.endDate, \
-                                                  nctime, \
-                                                  calendar = nctime.calendar, \
-                                                  select = 'before')
-                        logger.warning("While reading the netcdf file, 'before' is used for determining the starting date/time index.")
+
+                idx_start = nc.date2index(self.startDate, \
+                                          nctime, \
+                                          calendar = nctime.calendar, \
+                                          select = 'exact')
+                idx_end   = nc.date2index(self.endDate, \
+                                          nctime, \
+                                          calendar = nctime.calendar, \
+                                          select = 'after')
+
+                # ~ try:
+                    # ~ idx_start = nc.date2index(self.startDate, \
+                                              # ~ nctime, \
+                                              # ~ calendar = nctime.calendar, \
+                                              # ~ select = 'exact')
+                # ~ except:
+                    # ~ try:
+                        # ~ idx_start = nc.date2index(self.startDate, \
+                                                  # ~ nctime, \
+                                                  # ~ calendar = nctime.calendar, \
+                                                  # ~ select = 'before')
+                        # ~ logger.warning("While reading the netcdf file, 'before' is used for determining the starting date/time index.")
+                    # ~ except:
+                        # ~ idx_start = nc.date2index(self.startDate, \
+                                                  # ~ nctime, \
+                                                  # ~ calendar = nctime.calendar, \
+                                                  # ~ select = 'after')
+                        # ~ logger.warning("While reading the netcdf file, 'after' is used for determining the starting date/time index.")
+                # ~ try:
+                    # ~ idx_end   = nc.date2index(self.endDate, \
+                                              # ~ nctime, \
+                                              # ~ calendar = nctime.calendar, \
+                                              # ~ select = 'exact')
+                # ~ except:
+                    # ~ try:
+                        # ~ idx_end   = nc.date2index(self.endDate, \
+                                                  # ~ nctime, \
+                                                  # ~ calendar = nctime.calendar, \
+                                                  # ~ select = 'after')
+                        # ~ logger.warning("While reading the netcdf file, 'after' is used for determining the starting date/time index.")
+                    # ~ except:
+                        # ~ idx_end   = nc.date2index(self.endDate, \
+                                                  # ~ nctime, \
+                                                  # ~ calendar = nctime.calendar, \
+                                                  # ~ select = 'before')
+                        # ~ logger.warning("While reading the netcdf file, 'before' is used for determining the starting date/time index.")
 
                 cropData = cropData[int(idx_start):int(idx_end+1)]
                 cropTime = cropTime[int(idx_start):int(idx_end+1)]

@@ -41,15 +41,7 @@ source activate /home/hydrowld/.conda/envs/pcrglobwb_python3_2023-10-31
 
 python_script_file_used="000_main_analyze_discharge_flexible_ulysses-2023_snellius_mhm.py"
 
-pcrglobwb_output_folder="/scratch-shared/edwin/pcrglobwb_ulysses_ksat_2023-11-17_only_1981-1998/"
-
-#~ (pcrglobwb_python3_2023-10-31) edwin@tcn1118.local.snellius.surf.nl:/scratch-shared/edwin/pcrglobwb_ulysses_ksat_2023-11-17_only_1981-1998$ ls -lah
-#~ total 13G
-#~ drwxr-x--x 2 edwin edwin 4.0K Nov 19 11:38 .
-#~ drwxr-xr-x 6 edwin edwin 4.0K Nov 19 11:31 ..
-#~ -r--r----- 1 edwin edwin 4.2G Nov 19 11:37 discharge_monthAvg_output_1981-1998_ksat0.50.nc
-#~ -r--r----- 1 edwin edwin 4.2G Nov 19 11:38 discharge_monthAvg_output_1981-1998_ksat0.75.nc
-#~ -r--r----- 1 edwin edwin 4.2G Nov 19 11:40 discharge_monthAvg_output_1981-1998_ksat1.00.nc
+pcrglobwb_output_folder="/scratch-shared/edwin/mhm_ulysses/"
 
 #~ discharge_file_name="discharge_monthAvg_output_1981-2019.nc"
 #~ discharge_file_name=${DISCHARGE_FILENAME}

@@ -2,7 +2,9 @@
 #SBATCH -N 1
 #SBATCH -n 32
 
-#SBATCH -t 119:59:59
+#~ #SBATCH -t 119:59:59
+
+#SBATCH -t 0:59:59
 
 #~ # eejit
 #~ #SBATCH -p defq
@@ -45,7 +47,14 @@ pcrglobwb_output_folder="/scratch-shared/edwin/mhm_ulysses/"
 
 #~ discharge_file_name="discharge_monthAvg_output_1981-2019.nc"
 #~ discharge_file_name=${DISCHARGE_FILENAME}
-discharge_file_name="monthly_average_q_mhm_mrm_era5land_1981-2019_fix-time_fix-var-name_1981-1998.nc"
+discharge_file_name="monthly_average_q_mhm_mrm_era5land_1981-2019_fix-time_fix-var-name_fix-taxis_fix-reftime.nc"
+
+#~ (pcrglobwb_python3_2023-10-31) edwin@int5:/scratch-shared/edwin/mhm_ulysses$ ls -lah *.nc
+#~ lrwxrwxrwx 1 edwin edwin  147 Nov 27 12:56 discharge_monthAvg_output_1981-1998_ksat1.00.nc -> /scratch-shared/edwin/pcrglobwb_ulysses_ksat_sensi/pcrglobwb_ulysses_ksat_2023-11-17_only_1981-1998/discharge_monthAvg_output_1981-1998_ksat1.00.nc
+#~ -rw-r----- 1 edwin edwin 8.8G Nov 27 13:15 monthly_average_q_mhm_mrm_era5land_1981-2019_fix-time_fix-var-name_fix-reftime.nc
+#~ -rw-r----- 1 edwin edwin 8.8G Nov 27 13:17 monthly_average_q_mhm_mrm_era5land_1981-2019_fix-time_fix-var-name_fix-taxis_fix-reftime.nc
+#~ -rw-r----- 1 edwin edwin 8.8G Nov 25 10:14 monthly_average_q_mhm_mrm_era5land_1981-2019_fix-time.nc
+#~ -rw-r----- 1 edwin edwin 8.8G Nov 25 10:14 monthly_average_q_mhm_mrm_era5land_1981-2019.nc
 
 #~ global_analysis_out_dir=${pcrglobwb_output_folder}"/validation_1981-2019/"
 #~ global_analysis_out_dir=${pcrglobwb_output_folder}"/"${SUB_OUT_FOLDER}"/"

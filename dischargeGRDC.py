@@ -527,7 +527,7 @@ class DischargeEvaluation(object):
                 idx_end   = nc.date2index(self.endDate, \
                                           nctime, \
                                           calendar = nctime.calendar, \
-                                          select = 'after')
+                                          select = 'exact')
 
                 # ~ try:
                     # ~ idx_start = nc.date2index(self.startDate, \

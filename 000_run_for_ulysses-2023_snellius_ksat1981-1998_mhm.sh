@@ -2,9 +2,9 @@
 #SBATCH -N 1
 #SBATCH -n 32
 
-#~ #SBATCH -t 119:59:59
+#SBATCH -t 119:59:59
 
-#SBATCH -t 0:59:59
+#~ #SBATCH -t 0:59:59
 
 #~ # eejit
 #~ #SBATCH -p defq

@@ -56,11 +56,14 @@ globalDirectoryGRDC     = "/projects/0/dfguu/users/edwin/data/grdc_data_monthly_
 # ~ globalCloneMapFileName = "/scratch/depfg/sutan101/data/pcrglobwb_input_ulysses/pcrglobwb_ulysses_input_files_v2021-01-03/lddsound_06min_version_202007XX_for_ulysses.map"
 # ~ cellAreaMapFileName    = "/scratch/depfg/sutan101/data/pcrglobwb_input_ulysses/pcrglobwb_ulysses_input_files_v2021-01-03/cellarea.map"
 
-# 6 arcmin ulysses
-lddMapFileName         = "/projects/0/dfguu/users/edwin/data/pcrglobwb_input_ulysses/pcrglobwb_ulysses_input_files_v2021-01-03/lddsound_06min_version_202007XX_for_ulysses.map"
-globalCloneMapFileName = "/projects/0/dfguu/users/edwin/data/pcrglobwb_input_ulysses/pcrglobwb_ulysses_input_files_v2021-01-03/lddsound_06min_version_202007XX_for_ulysses.map"
-cellAreaMapFileName    = "/projects/0/dfguu/users/edwin/data/pcrglobwb_input_ulysses/pcrglobwb_ulysses_input_files_v2021-01-03/cellarea.map"
+# ~ # 6 arcmin ulysses
+# ~ lddMapFileName         = "/projects/0/dfguu/users/edwin/data/pcrglobwb_input_ulysses/pcrglobwb_ulysses_input_files_v2021-01-03/lddsound_06min_version_202007XX_for_ulysses.map"
+# ~ globalCloneMapFileName = "/projects/0/dfguu/users/edwin/data/pcrglobwb_input_ulysses/pcrglobwb_ulysses_input_files_v2021-01-03/lddsound_06min_version_202007XX_for_ulysses.map"
+# ~ cellAreaMapFileName    = "/projects/0/dfguu/users/edwin/data/pcrglobwb_input_ulysses/pcrglobwb_ulysses_input_files_v2021-01-03/cellarea.map"
 
+lddMapFileName         = None
+globalCloneMapFileName = None
+cellAreaMapFileName    = None
 
 
 # the following is needed for evaluating model results with 5 arcmin resolution (but optional)

@@ -528,6 +528,8 @@ class DischargeEvaluation(object):
                                           nctime, \
                                           calendar = nctime.calendar, \
                                           select = 'exact')
+                print(idx_start)
+                print(idx_end)                          
 
                 # ~ try:
                     # ~ idx_start = nc.date2index(self.startDate, \

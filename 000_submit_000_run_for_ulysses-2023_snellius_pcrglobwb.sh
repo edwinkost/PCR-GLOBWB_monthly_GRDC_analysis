@@ -4,7 +4,7 @@
 #~ sbatch -J reccf5p00 --export DISCHARGE_FILENAME="discharge_monthAvg_output_1981_2019_reccf5p00.nc",SUB_OUT_FOLDER="validation_reccf5p00" 000_run_for_ulysses-2023_snellius_pcrglobwb.sh
 #~ sbatch -J reccfsqrt --export DISCHARGE_FILENAME="discharge_monthAvg_output_1981_2019_reccfsqrt.nc",SUB_OUT_FOLDER="validation_reccfsqrt" 000_run_for_ulysses-2023_snellius_pcrglobwb.sh
 
-sbatch -J reccfsqrt --export DISCHARGE_FILENAME="discharge_monthAvg_output_1981_2019_reccf1p00.nc",SUB_OUT_FOLDER="validation_reccf1p00" 000_run_for_ulysses-2023_snellius_pcrglobwb.sh
+sbatch -J reccf1p00 --export DISCHARGE_FILENAME="discharge_monthAvg_output_1981_2019_reccf1p00.nc",SUB_OUT_FOLDER="validation_reccf1p00" 000_run_for_ulysses-2023_snellius_pcrglobwb.sh
 
 #~ edwin@tcn1182.local.snellius.surf.nl:/scratch-shared/edwin/pcrglobwb_ulysses_recessionCoef_2023-11-22$ ls -lah
 #~ total 46G

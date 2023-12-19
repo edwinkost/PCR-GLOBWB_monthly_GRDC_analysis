@@ -14,12 +14,12 @@ sbatch -J ${JOB_NAME} --export DISCHARGE_OUTPUT_FOLDER=${DISCHARGE_OUTPUT_FOLDER
 
 JOB_NAME="orig_2lcs_discharge_validation"
 DISCHARGE_OUTPUT_FOLDER="/scratch-shared/edwin/pcrglobwb_ulysses_2023-12-XX_validation/check_orig_2lcs/"
-DISCHARGE_FILENAME="discharge_monthAvg_output_orig_2lcs_1981-1995.nc"
+DISCHARGE_FILENAME="discharge_monthAvg_output_pgb_orig_2lcs_1981-1995.nc"
 ANALYSIS_OUTPUT_FOLDER=${DISCHARGE_OUTPUT_FOLDER}"/validation_1981-1995/"
 sbatch -J ${JOB_NAME} --export DISCHARGE_OUTPUT_FOLDER=${DISCHARGE_OUTPUT_FOLDER},DISCHARGE_FILENAME=${DISCHARGE_FILENAME},ANALYSIS_OUTPUT_FOLDER=${ANALYSIS_OUTPUT_FOLDER} ${SLURM_JOB_FILE}
 
 JOB_NAME="sqrt_2lcs_discharge_validation"
 DISCHARGE_OUTPUT_FOLDER="/scratch-shared/edwin/pcrglobwb_ulysses_2023-12-XX_validation/check_sqrt_2lcs/"
-DISCHARGE_FILENAME="discharge_monthAvg_output_sqrt_2lcs_1981-1995.nc"
+DISCHARGE_FILENAME="discharge_monthAvg_output_pgb_sqrt_2lcs_1981-1995.nc"
 ANALYSIS_OUTPUT_FOLDER=${DISCHARGE_OUTPUT_FOLDER}"/validation_1981-1995/"
 sbatch -J ${JOB_NAME} --export DISCHARGE_OUTPUT_FOLDER=${DISCHARGE_OUTPUT_FOLDER},DISCHARGE_FILENAME=${DISCHARGE_FILENAME},ANALYSIS_OUTPUT_FOLDER=${ANALYSIS_OUTPUT_FOLDER} ${SLURM_JOB_FILE}

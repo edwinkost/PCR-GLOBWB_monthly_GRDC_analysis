@@ -36,11 +36,11 @@ cleanOutputDir                           = True                         # option
 # ~ globalDirectoryGRDC = "/projects/0/dfguu/users/edwin/data/observation_data/grdc_monthly_data_splitted/"           # "/scratch/edwin/observation_data/grdc_monthly_data_splitted/"
 # ~ # This directory will contain several sub-folders (18 sub-folders per 10 Jun 2014)
 
-# ~ # - on snellius
-# ~ globalDirectoryGRDC = "/projects/0/dfguu/users/edwin/data/grdc_data_monthly_requested_on_2023013/txt_splitted/"
+# - on snellius
+globalDirectoryGRDC = "/projects/0/dfguu/users/edwin/data/grdc_data_monthly_requested_on_2023013/txt_splitted/"
 
-# - on eejit
-globalDirectoryGRDC     = "/scratch/depfg/sutan101/data/grdc_data_monthly_requested_on_2023013/txt_splitted/"
+# ~ # - on eejit
+# ~ globalDirectoryGRDC     = "/scratch/depfg/sutan101/data/grdc_data_monthly_requested_on_2023013/txt_splitted/"
 
 
 # for 5min results of PCR-GLOBWB 2.0

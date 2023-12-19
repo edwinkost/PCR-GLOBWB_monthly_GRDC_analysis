@@ -6,10 +6,10 @@
 
 #~ #SBATCH -t 0:59:59
 
-# eejit
-#SBATCH -p defq
+#~ # eejit
+#~ #SBATCH -p defq
 
-#~ #SBATCH -p genoa
+#SBATCH -p genoa
 
 #~ #SBATCH --exclusive
 
@@ -26,19 +26,19 @@
 #SBATCH --export DISCHARGE_OUTPUT_FOLDER=${DISCHARGE_OUTPUT_FOLDER},DISCHARGE_FILENAME=${DISCHARGE_FILENAME},ANALYSIS_OUTPUT_FOLDER=${ANALYSIS_OUTPUT_FOLDER}
 
 
-# -- eejit (Note: You may have problems while plotting hydrographs with ggplot2) 
-# load pcraster etc
-. /eejit/home/sutan101/load_default.sh
-# load R
-. /eejit/home/sutan101/load_R.sh
+#~ # -- eejit (Note: You may have problems while plotting hydrographs with ggplot2) 
+#~ # load pcraster etc
+#~ . /eejit/home/sutan101/load_default.sh
+#~ # load R
+#~ . /eejit/home/sutan101/load_R.sh
 
 
-#~ # -- snellius genoa
-#~ module load 2022
-#~ module load R/4.2.1-foss-2022a
-#~ module load Miniconda3/4.12.0
-#~ unset PYTHONPATH
-#~ source activate /home/hydrowld/.conda/envs/pcrglobwb_python3_2023-10-31
+# -- snellius genoa
+module load 2022
+module load R/4.2.1-foss-2022a
+module load Miniconda3/4.12.0
+unset PYTHONPATH
+source activate /home/hydrowld/.conda/envs/pcrglobwb_python3_2023-10-31
 
 
 
@@ -62,15 +62,15 @@ end_date=1995-12-31
 
 # clone, ldd and cellare file used for 6 arcmin ulysses runs
 #
-# - on eejit
-globalclone="/scratch/depfg/sutan101/pcrglobwb_input_ulysses_v202312XX/develop_edwin/lddsound_06min_version_202007XX_for_ulysses.map"
-lddmap_file="/scratch/depfg/sutan101/pcrglobwb_input_ulysses_v202312XX/develop_edwin/lddsound_06min_version_202007XX_for_ulysses.map"
-cellarea_m2="/scratch/depfg/sutan101/pcrglobwb_input_ulysses_v202312XX/develop_edwin/cellarea.map"
-#
-#~ # - on snellius
-#~ globalclone="/projects/0/dfguu/users/edwin/data/pcrglobwb_input_ulysses/pcrglobwb_ulysses_input_files_v2021-01-03/lddsound_06min_version_202007XX_for_ulysses.map"
-#~ lddmap_file="/projects/0/dfguu/users/edwin/data/pcrglobwb_input_ulysses/pcrglobwb_ulysses_input_files_v2021-01-03/lddsound_06min_version_202007XX_for_ulysses.map"
-#~ cellarea_m2="/projects/0/dfguu/users/edwin/data/pcrglobwb_input_ulysses/pcrglobwb_ulysses_input_files_v2021-01-03/cellarea.map"
+#~ # - on eejit
+#~ globalclone="/scratch/depfg/sutan101/pcrglobwb_input_ulysses_v202312XX/develop_edwin/lddsound_06min_version_202007XX_for_ulysses.map"
+#~ lddmap_file="/scratch/depfg/sutan101/pcrglobwb_input_ulysses_v202312XX/develop_edwin/lddsound_06min_version_202007XX_for_ulysses.map"
+#~ cellarea_m2="/scratch/depfg/sutan101/pcrglobwb_input_ulysses_v202312XX/develop_edwin/cellarea.map"
+#~ #
+# - on snellius
+globalclone="/projects/0/dfguu/users/edwin/data/pcrglobwb_input_ulysses/pcrglobwb_ulysses_input_files_v2021-01-03/lddsound_06min_version_202007XX_for_ulysses.map"
+lddmap_file="/projects/0/dfguu/users/edwin/data/pcrglobwb_input_ulysses/pcrglobwb_ulysses_input_files_v2021-01-03/lddsound_06min_version_202007XX_for_ulysses.map"
+cellarea_m2="/projects/0/dfguu/users/edwin/data/pcrglobwb_input_ulysses/pcrglobwb_ulysses_input_files_v2021-01-03/cellarea.map"
 
 
 #~ # for testing

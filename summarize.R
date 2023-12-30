@@ -2,7 +2,19 @@
 # number of sub folders where evaluations were splitted
 number_of_sub_folders = 30
 
+#~ edwin@tcn1174.local.snellius.surf.nl:/scratch-shared/edwin/pcrglobwb_ulysses_2023-12-XX_validation$ ls -lah
+#~ total 3.0K
+#~ drwxr-x---  6 edwin edwin 4.0K Dec 20 09:45 .
+#~ drwxr-xr-x 11 edwin edwin 4.0K Dec 20 09:00 ..
+#~ drwxr-x---  3 edwin edwin 4.0K Dec 20 09:46 check_orig_2lcs
+#~ drwxr-x---  3 edwin edwin 4.0K Dec 20 10:01 check_sqrt_2lcs
+#~ drwxr-x---  3 edwin edwin 4.0K Dec 20 09:45 check_sqrt_4lcs_old
+#~ drwxr-x---  3 edwin edwin 4.0K Dec 20 09:53 mhm
+
 folder_of_analysis_summaries = ""
+folder_of_analysis_summaries = "check_sqrt_4lcs_old/validation_1981-1995/"
+
+
 
 # read all summary tables:
 performance_table = read.table(paste(folder_of_analysis_summaries,"01/summary.txt",sep=""),header=T,sep=";")

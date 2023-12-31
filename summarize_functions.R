@@ -43,7 +43,7 @@ performance_table_selected = performance_table_selected[which(performance_table_
 # - only if ratio between the model and grdc catchment areas < 1.25
 ratio                          =  performance_table_selected$model_catchment_area_in_km2/performance_table_selected$grdc_catchment_area_in_km2
 ratio[which(ratio < ratio^-1)] = (ratio[which(ratio < ratio^-1)])^-1
-performance_table_selected = performance_table[which(ratio < 1.25), ]
+performance_table_selected = performance_table_selected[which(ratio < 1.25), ]
 
 # print number of stations used
 print(length(performance_table_selected$kge_2009))

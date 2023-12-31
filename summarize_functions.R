@@ -1,9 +1,9 @@
 
 
-cdf_kge <- function (folder_of_analysis_summaries, number_of_sub_folders, kge_minimum = -1.0) {
+cdf_kge <- function (folder_of_analysis_summaries, number_of_sub_folders) {
 
-#~ # number of sub folders where evaluations were splitted
-#~ number_of_sub_folders = 30
+# number of sub folders where evaluations were splitted
+number_of_sub_folders = 30
 
 #~ edwin@tcn1174.local.snellius.surf.nl:/scratch-shared/edwin/pcrglobwb_ulysses_2023-12-XX_validation$ ls -lah
 #~ total 3.0K
@@ -14,7 +14,8 @@ cdf_kge <- function (folder_of_analysis_summaries, number_of_sub_folders, kge_mi
 #~ drwxr-x---  3 edwin edwin 4.0K Dec 20 09:45 check_sqrt_4lcs_old
 #~ drwxr-x---  3 edwin edwin 4.0K Dec 20 09:53 mhm
 
-#~ folder_of_analysis_summaries = "check_sqrt_4lcs_old/validation_1981-1995/"
+folder_of_analysis_summaries = "/scratch-shared/edwin/pcrglobwb_ulysses_2023-12-XX_validation_final/2lcs_orig/validation_1981-2019/"
+
 
 
 
@@ -51,16 +52,17 @@ print(length(performance_table_selected$kge_2009))
 # get cdf
 kge_2009 = performance_table_selected$kge_2009
 kge_2009_cropped = kge_2009
-kge_2009_cropped[which(kge_2009_cropped < kge_minimum)] = kge_minimum
+#~ kge_minimum = -1.0
+#~ kge_2009_cropped[which(kge_2009_cropped < kge_minimum)] = kge_minimum
 plot(ecdf(kge_2009_cropped), xlim = c(-0.4,1.0))
 
 # print median  
-print(median(performance_table_selected$kge_2009_cropped))
+print(median(kge_2009_cropped))
 
 #~ # - calculate runoff (based on observed discharge)
 #~ grdc_runoff_in_mm_per_year = performance_table_selected$average_observation * 10^3 * 365.25 / (performance_table_selected$model_catchment_area_in_km2 * 10^6 * (1/(24.*3600.)))
 #~ performance_table_selected = cbind(performance_table_selected, grdc_runoff_in_mm_per_year) 
 
-return(kge_2009_cropped)
+return(ecdf(kge_2009_cropped))
 
 }

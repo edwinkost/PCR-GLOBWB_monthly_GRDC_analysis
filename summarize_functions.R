@@ -27,10 +27,10 @@ performance_table = rbind(performance_table,read.table(table_file_name,header=T,
 }
 
 
+performance_table = performance_table_all
 
 # selecting performance 
 performance_table_selected = performance_table[which(!is.na(performance_table$kge_2009)),]
-performance_table_all      = performance_table_selected
 
 # - only if average observation discharge > 0.0
 performance_table_selected = performance_table_selected[which(performance_table_selected$average_observation > 0.0), ]

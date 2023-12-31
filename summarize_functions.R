@@ -27,7 +27,7 @@ performance_table = rbind(performance_table,read.table(table_file_name,header=T,
 }
 
 
-performance_table = performance_table_all
+performance_table_all = performance_table
 
 # selecting performance 
 performance_table_selected = performance_table[which(!is.na(performance_table$kge_2009)),]

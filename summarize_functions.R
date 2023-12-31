@@ -2,8 +2,8 @@
 
 cdf_kge <- function (folder_of_analysis_summaries, number_of_sub_folders) {
 
-# number of sub folders where evaluations were splitted
-number_of_sub_folders = 30
+#~ # number of sub folders where evaluations were splitted
+#~ number_of_sub_folders = 30
 
 #~ edwin@tcn1174.local.snellius.surf.nl:/scratch-shared/edwin/pcrglobwb_ulysses_2023-12-XX_validation$ ls -lah
 #~ total 3.0K
@@ -14,7 +14,7 @@ number_of_sub_folders = 30
 #~ drwxr-x---  3 edwin edwin 4.0K Dec 20 09:45 check_sqrt_4lcs_old
 #~ drwxr-x---  3 edwin edwin 4.0K Dec 20 09:53 mhm
 
-folder_of_analysis_summaries = "/scratch-shared/edwin/pcrglobwb_ulysses_2023-12-XX_validation_final/2lcs_orig/validation_1981-2019/"
+#~ folder_of_analysis_summaries = "/scratch-shared/edwin/pcrglobwb_ulysses_2023-12-XX_validation_final/2lcs_orig/validation_1981-2019/"
 
 
 

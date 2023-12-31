@@ -55,7 +55,7 @@ kge_2009_cropped[which(kge_2009_cropped < kge_minimum)] = kge_minimum
 plot(ecdf(kge_2009_cropped), xlim = c(-0.4,1.0))
 
 # print median  
-median(performance_table_selected$kge_2009_cropped)
+print(median(performance_table_selected$kge_2009_cropped))
 
 #~ # - calculate runoff (based on observed discharge)
 #~ grdc_runoff_in_mm_per_year = performance_table_selected$average_observation * 10^3 * 365.25 / (performance_table_selected$model_catchment_area_in_km2 * 10^6 * (1/(24.*3600.)))

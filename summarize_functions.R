@@ -37,7 +37,7 @@ performance_table_selected = performance_table[which(!is.na(performance_table$kg
 performance_table_selected = performance_table_selected[which(performance_table_selected$average_observation > 0.0), ]
 
 # - only the data with reasonable number of pairs 
-performance_table_selected = performance_table_selected[which(performance_table_selected$num_of_month_pairs >= 60), ]
+performance_table_selected = performance_table_selected[which(performance_table_selected$num_of_month_pairs >= 120), ]
 # - only grdc catchment area > 100 km2
 performance_table_selected = performance_table_selected[which(performance_table_selected$grdc_catchment_area_in_km2  >= 100.),]
 

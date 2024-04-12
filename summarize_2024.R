@@ -16,6 +16,8 @@ folder_of_analysis_summaries = "check_sqrt_4lcs_old/validation_1981-1995/"
 
 folder_of_analysis_summaries = "2lcs_sqrt/validation_1981-2019/"
 
+#~ folder_of_analysis_summaries = "mhm/validation_1981-2019/"
+
 
 # read all summary tables:
 performance_table = read.table(paste(folder_of_analysis_summaries,"01/summary.txt",sep=""),header=T,sep=";")

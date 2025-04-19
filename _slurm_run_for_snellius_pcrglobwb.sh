@@ -38,15 +38,15 @@ source activate /home/hydrowld/.conda/envs/pcrglobwb_python3_2023-10-31
 
 python_script_file_used="_main_analyze_discharge_flexible_snellius.py"
 
-pcrglobwb_output_folder="/scratch-shared/edwin/pcrglobwb_wmo_run/v20250417/global/netcdf/merged/"
-#~ pcrglobwb_output_folder=${PCRGLOBWB_OUTPUT_FOLDER}"/"
+#~ pcrglobwb_output_folder="/scratch-shared/edwin/pcrglobwb_wmo_run/v20250417/global/netcdf/merged/"
+pcrglobwb_output_folder=${PCRGLOBWB_OUTPUT_FOLDER}"/"
 
 
-discharge_file_name="discharge_monthAvg_output_1981-2024.nc"
-#~ discharge_file_name=${pcrglobwb_output_folder}"/"${DISCHARGE_FILENAME}
+#~ discharge_file_name="discharge_monthAvg_output_1981-2024.nc"
+discharge_file_name=${pcrglobwb_output_folder}"/"${DISCHARGE_FILENAME}
 
-global_analysis_out_dir="/scratch-shared/edwindan/pcrglobwb_wmo_run_validation/wmo_run/validation_1981-2019/"
-#~ global_analysis_out_dir=${ANALYSIS_OUTPUT_FOLDER}"/"
+#~ global_analysis_out_dir="/scratch-shared/edwindan/pcrglobwb_wmo_run_validation/wmo_run/validation_1981-2019/"
+global_analysis_out_dir=${ANALYSIS_OUTPUT_FOLDER}"/"
 
 str_date=1981-01-31
 end_date=2019-12-31

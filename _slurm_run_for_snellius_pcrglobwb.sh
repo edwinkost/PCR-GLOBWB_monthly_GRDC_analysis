@@ -24,7 +24,7 @@
 
 
 # exporting some variables
-#SBATCH --export DISCHARGE_FILENAME=${DISCHARGE_FILENAME},ANALYSIS_OUTPUT_FOLDER=${ANALYSIS_OUTPUT_FOLDER}
+#SBATCH --export PCRGLOBWB_OUTPUT_FOLDER=${PCRGLOBWB_OUTPUT_FOLDER},DISCHARGE_FILENAME=${DISCHARGE_FILENAME},ANALYSIS_OUTPUT_FOLDER=${ANALYSIS_OUTPUT_FOLDER}
 
 
 # -- snellius genoa
@@ -38,8 +38,10 @@ source activate /home/hydrowld/.conda/envs/pcrglobwb_python3_2023-10-31
 
 python_script_file_used="_main_analyze_discharge_flexible_snellius.py"
 
+pcrglobwb_output_folder=${PCRGLOBWB_OUTPUT_FOLDER}"/"
+
 #~ discharge_file_name="/scratch-shared/edwin/pcrglobwb_wmo_run/v20250417/global/netcdf/merged//discharge_monthAvg_output_1981-2019.nc"
-discharge_file_name=${DISCHARGE_FILENAME}
+discharge_file_name=${pcrglobwb_output_folder}"/"${DISCHARGE_FILENAME}
 
 #~ global_analysis_out_dir="/scratch-shared/edwin/pcrglobwb_wmo_run_validation/wmo_run/validation_1981-2019/"
 global_analysis_out_dir=${ANALYSIS_OUTPUT_FOLDER}"/"

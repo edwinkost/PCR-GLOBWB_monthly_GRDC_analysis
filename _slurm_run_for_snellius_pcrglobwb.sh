@@ -45,7 +45,7 @@ pcrglobwb_output_folder="/scratch-shared/edwin/pcrglobwb_wmo_run/v20250417/globa
 discharge_file_name="discharge_monthAvg_output_1981-2019.nc"
 #~ discharge_file_name=${pcrglobwb_output_folder}"/"${DISCHARGE_FILENAME}
 
-global_analysis_out_dir="/scratch-shared/edwin/pcrglobwb_wmo_run_validation/wmo_run/validation_1981-2019/"
+global_analysis_out_dir="/scratch-shared/edwindan/pcrglobwb_wmo_run_validation/wmo_run/validation_1981-2019/"
 #~ global_analysis_out_dir=${ANALYSIS_OUTPUT_FOLDER}"/"
 
 str_date=1981-01-31

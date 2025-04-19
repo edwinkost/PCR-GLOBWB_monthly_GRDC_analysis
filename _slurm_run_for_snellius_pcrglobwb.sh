@@ -43,7 +43,7 @@ pcrglobwb_output_folder=${PCRGLOBWB_OUTPUT_FOLDER}"/"
 
 
 #~ discharge_file_name="discharge_monthAvg_output_1981-2024.nc"
-discharge_file_name=${pcrglobwb_output_folder}"/"${DISCHARGE_FILENAME}
+discharge_file_name=${DISCHARGE_FILENAME}
 
 #~ global_analysis_out_dir="/scratch-shared/edwindan/pcrglobwb_wmo_run_validation/wmo_run/validation_1981-2019/"
 global_analysis_out_dir=${ANALYSIS_OUTPUT_FOLDER}"/"

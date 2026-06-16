@@ -478,19 +478,14 @@ class DischargeEvaluation(object):
                 #~ ncFile = "/projects/wtrcycle/users/edwinhs/two_layers_with_demand_one_degree_zonation_cruts3.21-era_interim_5arcmin_but_30minArno"+"/M"+landmaskCode+"/netcdf/discharge_monthAvg_output.nc"
             
             logger.info("Reading and evaluating the model result for the grdc station "+str(id)+" from "+ncFile)
-            logger.info("pietje")
             
-            # ~ f = nc.Dataset(ncFile)
-            f = nc.Dataset("/scratch/depfg/sutan101/watersis_runs_may_2026/global_6min_with_watersis_forcing_with_parallel_v20260604/pgb_6min/begin_from_1970/global/netcdf/merged/discharge_monthAvg_output_1970-2019_global6min_v20260604.nc")
-            logger.info("pietje")
-            
-            # ~ if ncFile in filecache.keys():
-                # ~ f = filecache[ncFile]
-                # ~ print("Cached: ", ncFile)
-            # ~ else:
-                # ~ f = nc.Dataset(ncFile)
-                # ~ filecache[ncFile] = f
-                # ~ print("New: ", ncFile)
+            if ncFile in filecache.keys():
+                f = filecache[ncFile]
+                print("Cached: ", ncFile)
+            else:
+                f = nc.Dataset(ncFile)
+                filecache[ncFile] = f
+                print("New: ", ncFile)
 
             #
             varName = pcrglobwb_output["netcdf_variable_name"]
@@ -516,18 +511,12 @@ class DischargeEvaluation(object):
             minY    = min(abs(f.variables['lat'][:] - lat))
             yStationIndex = int(np.where(abs(f.variables['lat'][:] - lat) == minY)[0])  
 
-            logger.info("pietje")
-
             # cropping the data:
             cropData = f.variables[varName][:,yStationIndex,xStationIndex]
 
             # select specific ranges of date/year
             nctime   = f.variables['time']                                # A netCDF time variable object. 
             cropTime = nctime[:]
-
-            logger.info("pietje")
-            
-            logger.info(self.startDate)
 
             if (self.startDate != None) and (self.endDate != None):
 
@@ -583,7 +572,6 @@ class DischargeEvaluation(object):
                 cropTime = cropTime[int(idx_start):int(idx_end+1)]
 
             cropData = np.column_stack((cropTime,cropData))
-            logger.info("pietje crop")
             print(cropData)
             
             # make a randomDir containing txt files (attribute and model result):

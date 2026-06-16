@@ -478,11 +478,11 @@ class DischargeEvaluation(object):
                 #~ ncFile = "/projects/wtrcycle/users/edwinhs/two_layers_with_demand_one_degree_zonation_cruts3.21-era_interim_5arcmin_but_30minArno"+"/M"+landmaskCode+"/netcdf/discharge_monthAvg_output.nc"
             
             logger.info("Reading and evaluating the model result for the grdc station "+str(id)+" from "+ncFile)
-            print("pietje")
+            logger.info("pietje")
             
             # ~ f = nc.Dataset(ncFile)
             f = nc.Dataset("/scratch/depfg/sutan101/watersis_runs_may_2026/global_6min_with_watersis_forcing_with_parallel_v20260604/pgb_6min/begin_from_1970/global/netcdf/merged/discharge_monthAvg_output_1970-2019_global6min_v20260604.nc")
-            print("pietje")
+            logger.info("pietje")
             
             # ~ if ncFile in filecache.keys():
                 # ~ f = filecache[ncFile]

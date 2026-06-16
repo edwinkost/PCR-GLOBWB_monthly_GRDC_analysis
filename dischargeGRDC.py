@@ -479,13 +479,15 @@ class DischargeEvaluation(object):
             
             logger.info("Reading and evaluating the model result for the grdc station "+str(id)+" from "+ncFile)
             
-            if ncFile in filecache.keys():
-                f = filecache[ncFile]
-                print("Cached: ", ncFile)
-            else:
-                f = nc.Dataset(ncFile)
-                filecache[ncFile] = f
-                print("New: ", ncFile)
+            f = nc.Dataset(ncFile)
+            
+            # ~ if ncFile in filecache.keys():
+                # ~ f = filecache[ncFile]
+                # ~ print("Cached: ", ncFile)
+            # ~ else:
+                # ~ f = nc.Dataset(ncFile)
+                # ~ filecache[ncFile] = f
+                # ~ print("New: ", ncFile)
 
             #
             varName = pcrglobwb_output["netcdf_variable_name"]

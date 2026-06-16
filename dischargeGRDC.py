@@ -516,6 +516,8 @@ class DischargeEvaluation(object):
             minY    = min(abs(f.variables['lat'][:] - lat))
             yStationIndex = int(np.where(abs(f.variables['lat'][:] - lat) == minY)[0])  
 
+            logger.info("pietje")
+
             # cropping the data:
             cropData = f.variables[varName][:,yStationIndex,xStationIndex]
 

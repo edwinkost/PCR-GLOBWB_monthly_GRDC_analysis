@@ -525,7 +525,7 @@ class DischargeEvaluation(object):
             nctime   = f.variables['time']                                # A netCDF time variable object. 
             cropTime = nctime[:]
 
-            print("pietje")
+            logger.info("pietje")
             
             if (self.startDate != None) and (self.endDate != None):
 
@@ -581,6 +581,7 @@ class DischargeEvaluation(object):
                 cropTime = cropTime[int(idx_start):int(idx_end+1)]
 
             cropData = np.column_stack((cropTime,cropData))
+            logger.info("pietje crop")
             print(cropData)
             
             # make a randomDir containing txt files (attribute and model result):

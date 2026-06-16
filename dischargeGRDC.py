@@ -518,6 +518,8 @@ class DischargeEvaluation(object):
             nctime   = f.variables['time']                                # A netCDF time variable object. 
             cropTime = nctime[:]
 
+            print("pietje")
+            
             if (self.startDate != None) and (self.endDate != None):
 
                 idx_start = nc.date2index(self.startDate, \

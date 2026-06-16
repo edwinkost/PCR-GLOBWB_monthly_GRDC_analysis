@@ -11,7 +11,7 @@ LDD_FILE="/scratch/depfg/sutan101_new/pcrglobwb_input_watersis/develop/global_6m
 GLOBALCLONE="/scratch/depfg/sutan101_new/pcrglobwb_input_watersis/develop/global_6min/lddsound_06min_version_202007XX_for_ulysses.map"
 CELLAREA_M2="/scratch/depfg/sutan101_new/pcrglobwb_input_watersis/develop/global_6min/cellarea.map"
 GRDC_MAIN_FOLDER="/scratch/depfg/sutan101/data/grdc_data_monthly_requested_on_2023013/txt_splitted/"
-sbatch -J ${JOB_NAME} --export PCRGLOBWB_OUTPUT_FOLDER=${PCRGLOBWB_OUTPUT_FOLDER},DISCHARGE_FILENAME=${DISCHARGE_FILENAME},ANALYSIS_OUTPUT_FOLDER=${ANALYSIS_OUTPUT_FOLDER},STR_DATE=${STR_DATE},END_DATE=${END_DATE},LDD_FILE=${LDD_FILE},GLOBALCLONE=${GLOBALCLONE},CELLAREA_M2=${CELLAREA_M2},GRDC_MAIN_FOLDER=${GRDC_MAIN_FOLDER}
+sbatch -J ${JOB_NAME} --export PCRGLOBWB_OUTPUT_FOLDER=${PCRGLOBWB_OUTPUT_FOLDER},DISCHARGE_FILENAME=${DISCHARGE_FILENAME},ANALYSIS_OUTPUT_FOLDER=${ANALYSIS_OUTPUT_FOLDER},STR_DATE=${STR_DATE},END_DATE=${END_DATE},LDD_FILE=${LDD_FILE},GLOBALCLONE=${GLOBALCLONE},CELLAREA_M2=${CELLAREA_M2},GRDC_MAIN_FOLDER=${GRDC_MAIN_FOLDER} ${SLURM_SCRIPT}
 
 JOB_NAME="gl6min_1981-2015_watersis_val"
 PCRGLOBWB_OUTPUT_FOLDER="/scratch/depfg/sutan101/watersis_runs_may_2026/global_6min_with_watersis_forcing_with_parallel_v20260604/pgb_6min/begin_from_1970/global/netcdf/merged/"
@@ -23,7 +23,7 @@ LDD_FILE="/scratch/depfg/sutan101_new/pcrglobwb_input_watersis/develop/global_6m
 GLOBALCLONE="/scratch/depfg/sutan101_new/pcrglobwb_input_watersis/develop/global_6min/lddsound_06min_version_202007XX_for_ulysses.map"
 CELLAREA_M2="/scratch/depfg/sutan101_new/pcrglobwb_input_watersis/develop/global_6min/cellarea.map"
 GRDC_MAIN_FOLDER="/scratch/depfg/sutan101/data/grdc_data_monthly_requested_on_2023013/txt_splitted/"
-sbatch -J ${JOB_NAME} --export PCRGLOBWB_OUTPUT_FOLDER=${PCRGLOBWB_OUTPUT_FOLDER},DISCHARGE_FILENAME=${DISCHARGE_FILENAME},ANALYSIS_OUTPUT_FOLDER=${ANALYSIS_OUTPUT_FOLDER},STR_DATE=${STR_DATE},END_DATE=${END_DATE},LDD_FILE=${LDD_FILE},GLOBALCLONE=${GLOBALCLONE},CELLAREA_M2=${CELLAREA_M2},GRDC_MAIN_FOLDER=${GRDC_MAIN_FOLDER}
+sbatch -J ${JOB_NAME} --export PCRGLOBWB_OUTPUT_FOLDER=${PCRGLOBWB_OUTPUT_FOLDER},DISCHARGE_FILENAME=${DISCHARGE_FILENAME},ANALYSIS_OUTPUT_FOLDER=${ANALYSIS_OUTPUT_FOLDER},STR_DATE=${STR_DATE},END_DATE=${END_DATE},LDD_FILE=${LDD_FILE},GLOBALCLONE=${GLOBALCLONE},CELLAREA_M2=${CELLAREA_M2},GRDC_MAIN_FOLDER=${GRDC_MAIN_FOLDER} ${SLURM_SCRIPT}
 
 #~ # validating AQUEDUCT (as the benchmark)
 #~ JOB_NAME="val_aquedut"

@@ -26,8 +26,8 @@
 
 
 # load software
-. /eejit/home/sutan101/load_default.sh
 . /eejit/home/sutan101/load_R_on_eejit.sh 
+. /eejit/home/sutan101/load_default.sh
 
 python_script_file_used="_main_analyze_discharge.py"
 

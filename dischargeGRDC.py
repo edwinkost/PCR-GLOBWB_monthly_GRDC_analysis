@@ -527,6 +527,8 @@ class DischargeEvaluation(object):
 
             logger.info("pietje")
             
+            logger.info(self.startDate)
+
             if (self.startDate != None) and (self.endDate != None):
 
                 idx_start = nc.date2index(self.startDate, \

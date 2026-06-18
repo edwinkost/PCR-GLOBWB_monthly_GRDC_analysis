@@ -147,8 +147,8 @@ def main():
                                                 lddMapFileName,\
                                                 cellAreaMapFileName,\
                                                 pcrglobwb_output,\
-                                                analysisOutputDir
-                                                tmpDir = None,
+                                                analysisOutputDir,\
+                                                tmpDir = None,\
                                                 catchmentAreaMapInKm2 = catchmentAreaMapInKm2)
 
 if __name__ == '__main__':

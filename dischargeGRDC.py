@@ -256,7 +256,8 @@ class DischargeEvaluation(object):
                                 cellAreaMapFileName,\
                                 pcrglobwb_output,\
                                 analysisOutputDir="",\
-                                tmpDir = None):     
+                                tmpDir = None,
+                                catchmentAreaMapInKm2 = None):     
 
         # temporary directory
         if tmpDir == None: tmpDir = self.tmpDir+"/edwin_grdc_"
@@ -280,17 +281,21 @@ class DischargeEvaluation(object):
         cloneMap = pcr.boolean(1)
         self.cell_size_in_arc_degree = vos.getMapAttributesALL(globalCloneMapFileName)['cellsize']
         
-        lddMap = pcr.lddrepair(pcr.ldd(pcr.readmap(lddMapFileName)))
-        lddMap = pcr.lddrepair(lddMap)
-        cellArea = pcr.scalar(pcr.readmap(cellAreaMapFileName))
+        # model catchment areas
+        if catchmentAreaMapInKm2 is None:
+            lddMap = pcr.lddrepair(pcr.ldd(pcr.readmap(lddMapFileName)))
+            lddMap = pcr.lddrepair(lddMap)
+            cellArea = pcr.scalar(pcr.readmap(cellAreaMapFileName))
+            catchmentAreaAll = pcr.catchmenttotal(cellArea, lddMap) / (1000.*1000.)  # unit: km2
+        else:
+            catchmentAreaAll = pcr.readmap(catchmentAreaMapInKm2)
         
         # The landMaskClass map contains the nominal classes for all landmask regions. 
         landMaskClass = pcr.nominal(cloneMap)  # default: if catchmentClassFileName is not given
         if catchmentClassFileName != None:
             landMaskClass = pcr.nominal(pcr.readmap(catchmentClassFileName))
 
-        # model catchment areas and cordinates
-        catchmentAreaAll = pcr.catchmenttotal(cellArea, lddMap) / (1000.*1000.)  # unit: km2
+        # model cordinates
         xCoordinate = pcr.xcoordinate(cloneMap)
         yCoordinate = pcr.ycoordinate(cloneMap)
         

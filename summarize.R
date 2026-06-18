@@ -14,6 +14,7 @@ number_of_sub_folders = 30
 folder_of_analysis_summaries = ""
 folder_of_analysis_summaries = "check_sqrt_4lcs_old/validation_1981-1995/"
 
+folder_of_analysis_summaries = "/scratch/depfg/sutan101/benchmark_for_watersis_runs/aqueduct/analysis_1981-2019/"
 
 
 # read all summary tables:

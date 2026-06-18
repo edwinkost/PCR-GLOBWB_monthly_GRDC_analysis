@@ -113,6 +113,9 @@ def main():
     # GRDC (main) folder
     globalDirectoryGRDC = str(argument[11])
     
+    catchmentAreaMapInKm2 = None
+    if lddMapFileName == "None": catchmentAreaMapInKm2 = str(argument[11]) 
+
     # sub-folders of the analysis output and GRDC folders 
     analysisOutputDir = globalAnalysisOutputDir + "/" + sub_folder + "/"
     directoryGRDC     = globalDirectoryGRDC + "/" + sub_folder + "/"
@@ -144,7 +147,9 @@ def main():
                                                 lddMapFileName,\
                                                 cellAreaMapFileName,\
                                                 pcrglobwb_output,\
-                                                analysisOutputDir)  
+                                                analysisOutputDir
+                                                tmpDir = None,
+                                                catchmentAreaMapInKm2 = catchmentAreaMapInKm2)
 
 if __name__ == '__main__':
     sys.exit(main())

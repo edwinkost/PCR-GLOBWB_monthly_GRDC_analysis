@@ -114,7 +114,7 @@ def main():
     globalDirectoryGRDC = str(argument[11])
     
     catchmentAreaMapInKm2 = None
-    if lddMapFileName == "None": catchmentAreaMapInKm2 = str(argument[11]) 
+    if lddMapFileName == "None": catchmentAreaMapInKm2 = str(argument[12]) 
 
     # sub-folders of the analysis output and GRDC folders 
     analysisOutputDir = globalAnalysisOutputDir + "/" + sub_folder + "/"

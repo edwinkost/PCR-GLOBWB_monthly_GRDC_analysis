@@ -291,8 +291,8 @@ class DischargeEvaluation(object):
             catchmentAreaAll = pcr.readmap(catchmentAreaMapInKm2)
         
         # The landMaskClass map contains the nominal classes for all landmask regions. 
-        landMaskClass = pcr.nominal(pcr.defined(cloneMap))       # default: if catchmentClassFileName is not given
-        landMaskClass =if(pcr.defined(cloneMap), landMaskClass)  # default: if catchmentClassFileName is not given
+        landMaskClass = pcr.nominal(pcr.defined(cloneMap))                # default: if catchmentClassFileName is not given
+        landMaskClass = pcr.ifthen(pcr.defined(cloneMap), landMaskClass)  # default: if catchmentClassFileName is not given
         if catchmentClassFileName != None:
             landMaskClass = pcr.nominal(pcr.readmap(catchmentClassFileName))
 

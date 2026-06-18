@@ -1,11 +1,35 @@
 
 SLURM_SCRIPT="_slurm_run_for_eejit_pcrglobwb.sh"
 
-JOB_NAME="gl5min_1981-2019_aqueduct_val"
+#~ JOB_NAME="gl5min_1981-2019_aqueduct_val"
+#~ PCRGLOBWB_OUTPUT_FOLDER="/scratch/depfg/sutan101/pcrglobwb_wri_aqueduct_2021/pcrglobwb_aqueduct_2021_monthly_annual_files/version_2021-09-16_merged/gswp3-w5e5/historical-reference/"
+#~ DISCHARGE_FILENAME="pcrglobwb_cmip6-isimip3-gswp3-w5e5_image-aqueduct_historical-reference_discharge_global_monthly-average_1960_2019_basetier1.nc"
+#~ ANALYSIS_OUTPUT_FOLDER="/scratch/depfg/sutan101/benchmark_for_watersis_runs/aqueduct/analysis_1981-2019/"
+#~ STR_DATE="1981-01-31"
+#~ END_DATE="2019-12-31"
+#~ LDD_FILE="/scratch/depfg/sutan101/data/pcrglobwb_input_aqueduct/version_2021-09-16/general/lddsound_05min_version_20210330.map"
+#~ GLOBALCLONE="/scratch/depfg/sutan101/data/pcrglobwb_input_aqueduct/version_2021-09-16/general/lddsound_05min_version_20210330.map"
+#~ CELLAREA_M2="/scratch/depfg/sutan101/data/pcrglobwb_input_aqueduct/version_2021-09-16/general/cdo_gridarea_clone_global_05min_correct_lats.nc.map"
+#~ GRDC_MAIN_FOLDER="/scratch/depfg/sutan101/data/grdc_data_monthly_requested_on_2023013/txt_splitted/"
+#~ sbatch -J ${JOB_NAME} --export PCRGLOBWB_OUTPUT_FOLDER=${PCRGLOBWB_OUTPUT_FOLDER},DISCHARGE_FILENAME=${DISCHARGE_FILENAME},ANALYSIS_OUTPUT_FOLDER=${ANALYSIS_OUTPUT_FOLDER},STR_DATE=${STR_DATE},END_DATE=${END_DATE},LDD_FILE=${LDD_FILE},GLOBALCLONE=${GLOBALCLONE},CELLAREA_M2=${CELLAREA_M2},GRDC_MAIN_FOLDER=${GRDC_MAIN_FOLDER} ${SLURM_SCRIPT}
+
+#~ JOB_NAME="gl5min_1981-2015_gmd_val"
+#~ PCRGLOBWB_OUTPUT_FOLDER="/scratch/depfg/hydrowld/data/hydroworld/pcrglobwb2_input_release/version_2019_11_beta_extended/example_output/global_05min_gmd_paper_output/"
+#~ DISCHARGE_FILENAME="discharge_monthAvg_output_1958-01-31_to_2015-12-31_zip.nc"
+#~ ANALYSIS_OUTPUT_FOLDER="/scratch/depfg/sutan101/benchmark_for_watersis_runs/gmd_paper/analysis_1981-2015/"
+#~ STR_DATE="1981-01-31"
+#~ END_DATE="2015-12-31"
+#~ LDD_FILE="/scratch/depfg/hydrowld/data/hydroworld/pcrglobwb2_input_release/version_2019_11_beta_extended/pcrglobwb2_input/global_05min/routing/ldd_and_cell_area/lddsound_05min.map"
+#~ GLOBALCLONE="/scratch/depfg/hydrowld/data/hydroworld/pcrglobwb2_input_release/version_2019_11_beta_extended/pcrglobwb2_input/global_05min/routing/ldd_and_cell_area/lddsound_05min.map"
+#~ CELLAREA_M2="/scratch/depfg/hydrowld/data/hydroworld/pcrglobwb2_input_release/version_2019_11_beta_extended/pcrglobwb2_input/global_05min/routing/ldd_and_cell_area/cellsize05min.correct.map"
+#~ GRDC_MAIN_FOLDER="/scratch/depfg/sutan101/data/grdc_data_monthly_requested_on_2023013/txt_splitted/"
+#~ sbatch -J ${JOB_NAME} --export PCRGLOBWB_OUTPUT_FOLDER=${PCRGLOBWB_OUTPUT_FOLDER},DISCHARGE_FILENAME=${DISCHARGE_FILENAME},ANALYSIS_OUTPUT_FOLDER=${ANALYSIS_OUTPUT_FOLDER},STR_DATE=${STR_DATE},END_DATE=${END_DATE},LDD_FILE=${LDD_FILE},GLOBALCLONE=${GLOBALCLONE},CELLAREA_M2=${CELLAREA_M2},GRDC_MAIN_FOLDER=${GRDC_MAIN_FOLDER} ${SLURM_SCRIPT}
+
+JOB_NAME="gl5min_1990-2019_aqueduct_val"
 PCRGLOBWB_OUTPUT_FOLDER="/scratch/depfg/sutan101/pcrglobwb_wri_aqueduct_2021/pcrglobwb_aqueduct_2021_monthly_annual_files/version_2021-09-16_merged/gswp3-w5e5/historical-reference/"
 DISCHARGE_FILENAME="pcrglobwb_cmip6-isimip3-gswp3-w5e5_image-aqueduct_historical-reference_discharge_global_monthly-average_1960_2019_basetier1.nc"
-ANALYSIS_OUTPUT_FOLDER="/scratch/depfg/sutan101/benchmark_for_watersis_runs/aqueduct/analysis_1981-2019/"
-STR_DATE="1981-01-31"
+ANALYSIS_OUTPUT_FOLDER="/scratch/depfg/sutan101/benchmark_for_watersis_runs/aqueduct/analysis_1990-2019/"
+STR_DATE="1990-01-31"
 END_DATE="2019-12-31"
 LDD_FILE="/scratch/depfg/sutan101/data/pcrglobwb_input_aqueduct/version_2021-09-16/general/lddsound_05min_version_20210330.map"
 GLOBALCLONE="/scratch/depfg/sutan101/data/pcrglobwb_input_aqueduct/version_2021-09-16/general/lddsound_05min_version_20210330.map"
@@ -13,15 +37,14 @@ CELLAREA_M2="/scratch/depfg/sutan101/data/pcrglobwb_input_aqueduct/version_2021-
 GRDC_MAIN_FOLDER="/scratch/depfg/sutan101/data/grdc_data_monthly_requested_on_2023013/txt_splitted/"
 sbatch -J ${JOB_NAME} --export PCRGLOBWB_OUTPUT_FOLDER=${PCRGLOBWB_OUTPUT_FOLDER},DISCHARGE_FILENAME=${DISCHARGE_FILENAME},ANALYSIS_OUTPUT_FOLDER=${ANALYSIS_OUTPUT_FOLDER},STR_DATE=${STR_DATE},END_DATE=${END_DATE},LDD_FILE=${LDD_FILE},GLOBALCLONE=${GLOBALCLONE},CELLAREA_M2=${CELLAREA_M2},GRDC_MAIN_FOLDER=${GRDC_MAIN_FOLDER} ${SLURM_SCRIPT}
 
-JOB_NAME="gl5min_1981-2015_gmd_val"
+JOB_NAME="gl5min_1990-2015_gmd_val"
 PCRGLOBWB_OUTPUT_FOLDER="/scratch/depfg/hydrowld/data/hydroworld/pcrglobwb2_input_release/version_2019_11_beta_extended/example_output/global_05min_gmd_paper_output/"
 DISCHARGE_FILENAME="discharge_monthAvg_output_1958-01-31_to_2015-12-31_zip.nc"
-ANALYSIS_OUTPUT_FOLDER="/scratch/depfg/sutan101/benchmark_for_watersis_runs/gmd_paper/analysis_1981-2015/"
-STR_DATE="1981-01-31"
+ANALYSIS_OUTPUT_FOLDER="/scratch/depfg/sutan101/benchmark_for_watersis_runs/gmd_paper/analysis_1990-2015/"
+STR_DATE="1990-01-31"
 END_DATE="2015-12-31"
 LDD_FILE="/scratch/depfg/hydrowld/data/hydroworld/pcrglobwb2_input_release/version_2019_11_beta_extended/pcrglobwb2_input/global_05min/routing/ldd_and_cell_area/lddsound_05min.map"
 GLOBALCLONE="/scratch/depfg/hydrowld/data/hydroworld/pcrglobwb2_input_release/version_2019_11_beta_extended/pcrglobwb2_input/global_05min/routing/ldd_and_cell_area/lddsound_05min.map"
 CELLAREA_M2="/scratch/depfg/hydrowld/data/hydroworld/pcrglobwb2_input_release/version_2019_11_beta_extended/pcrglobwb2_input/global_05min/routing/ldd_and_cell_area/cellsize05min.correct.map"
 GRDC_MAIN_FOLDER="/scratch/depfg/sutan101/data/grdc_data_monthly_requested_on_2023013/txt_splitted/"
 sbatch -J ${JOB_NAME} --export PCRGLOBWB_OUTPUT_FOLDER=${PCRGLOBWB_OUTPUT_FOLDER},DISCHARGE_FILENAME=${DISCHARGE_FILENAME},ANALYSIS_OUTPUT_FOLDER=${ANALYSIS_OUTPUT_FOLDER},STR_DATE=${STR_DATE},END_DATE=${END_DATE},LDD_FILE=${LDD_FILE},GLOBALCLONE=${GLOBALCLONE},CELLAREA_M2=${CELLAREA_M2},GRDC_MAIN_FOLDER=${GRDC_MAIN_FOLDER} ${SLURM_SCRIPT}
-

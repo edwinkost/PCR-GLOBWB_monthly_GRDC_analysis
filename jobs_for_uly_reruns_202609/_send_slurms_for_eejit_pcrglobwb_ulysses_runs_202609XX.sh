@@ -18,7 +18,7 @@ sbatch -J ${JOB_NAME} --export PCRGLOBWB_OUTPUT_FOLDER=${PCRGLOBWB_OUTPUT_FOLDER
 
 JOB_NAME="mswep_1981-2015"
 PCRGLOBWB_OUTPUT_FOLDER="/scratch/depfg/sutan101/pcrglobwb_ulysses_2023-12-XX_rerun_on_202609XX/mswep/mswep_pgb_uly_rerun_two_lcs_sqrt_RERUN/begin_from_1981/global/netcdf/merged/"
-DISCHARGE_FILENAME="discharge_monthAvg_output_from_1981_to_2015_mswep.nc"
+DISCHARGE_FILENAME="discharge_monthAvg_output_from_1981_to_2019_mswep.nc"
 ANALYSIS_OUTPUT_FOLDER=${PCRGLOBWB_OUTPUT_FOLDER}/"grdc_analysis_1981-2015/"
 STR_DATE="1981-01-31"
 END_DATE="2015-12-31"

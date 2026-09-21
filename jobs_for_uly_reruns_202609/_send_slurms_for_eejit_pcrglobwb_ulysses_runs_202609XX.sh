@@ -1,5 +1,8 @@
 
-SLURM_SCRIPT="../_slurm_run_for_eejit_pcrglobwb.sh"
+# go to the upper folder that containing the scripts
+cd ..
+
+SLURM_SCRIPT="_slurm_run_for_eejit_pcrglobwb.sh"
 
 JOB_NAME="mswep_1981-2019"
 PCRGLOBWB_OUTPUT_FOLDER="/scratch/depfg/sutan101/pcrglobwb_ulysses_2023-12-XX_rerun_on_202609XX/mswep/mswep_pgb_uly_rerun_two_lcs_sqrt_RERUN/begin_from_1981/global/netcdf/merged/"

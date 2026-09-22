@@ -11,10 +11,13 @@ number_of_sub_folders = 30
 #~ drwxr-x---  3 edwin edwin 4.0K Dec 20 09:45 check_sqrt_4lcs_old
 #~ drwxr-x---  3 edwin edwin 4.0K Dec 20 09:53 mhm
 
-folder_of_analysis_summaries = ""
-folder_of_analysis_summaries = "check_sqrt_4lcs_old/validation_1981-1995/"
-
 folder_of_analysis_summaries = "/scratch/depfg/sutan101/benchmark_for_watersis_runs/aqueduct/analysis_1981-2019/"
+
+folder_of_analysis_summaries = ""
+
+#~ folder_of_analysis_summaries = "/scratch/depfg/sutan101/pcrglobwb_ulysses_2023-12-XX_rerun_on_202609XX/mswep/mswep_pgb_uly_rerun_two_lcs_sqrt_RERUN/begin_from_1981/global/netcdf/merged/grdc_analysis_1981-2019/"
+
+#~ folder_of_analysis_summaries = "check_sqrt_4lcs_old/validation_1981-1995/"
 
 
 # read all summary tables:
@@ -29,15 +32,39 @@ performance_table = rbind(performance_table,read.table(table_file_name,header=T,
 # selecting performance 
 performance_table_selected = performance_table[which(!is.na(performance_table$kge_2009)),]
 
-# plot cdf
-kge_2009 = performance_table_selected$kge_2009
-kge_2009_cropped = kge_2009
-kge_2009_cropped[which(kge_2009_cropped < -1.0)] = -1.0
-plot(ecdf(kge_2009_cropped), xlim = c(-0.4,1.0))
-  
 median(performance_table_selected$kge_2009)
 
+#~ # plot cdf
+#~ kge_2009 = performance_table_selected$kge_2009
+#~ kge_2009_cropped = kge_2009
+#~ kge_2009_cropped[which(kge_2009_cropped < -1.0)] = -1.0
+#~ plot(ecdf(kge_2009_cropped), xlim = c(-0.4,1.0))
+  
+# crop kge for plotting
+kge_2009_cropped = performance_table_selected$kge_2009
+kge_2009_cropped[which(kge_2009_cropped < -1.0)] = -1.0
 
+# plot cdf
+plot(ecdf(kge_2009_cropped), xlim = c(-1.0,1.0))
+
+
+# copy to other variables
+performance_table_watersis = performance_table_selected
+kge_2009_cropped_watersis  = kge_2009_cropped
+lines(ecdf(kge_2009_cropped_watersis), col = 'blue')
+
+#~ performance_table_ulysses_mswep = performance_table_selected
+#~ kge_2009_cropped_ulysses_mswep  = kge_2009_cropped
+#~ lines(ecdf(kge_2009_cropped_ulysses_mswep), col = 'red')
+
+
+
+
+######################################## UNTIL THIS ONLY #######################################################################
+
+
+
+######################################## below will not be used anymore ########################################################
 
 performance_table_complete = performance_table
 performance_table = performance_table_seleted

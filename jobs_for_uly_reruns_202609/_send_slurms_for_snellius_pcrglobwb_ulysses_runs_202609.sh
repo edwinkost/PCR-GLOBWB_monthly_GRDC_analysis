@@ -4,10 +4,12 @@ cd ..
 
 SLURM_SCRIPT="_slurm_run_for_snellius_pcrglobwb.sh"
 
+
 LDD_FILE="/scratch-shared/edwin/data/pcrglobwb_input_ulysses_v202312XX/develop_edwin/lddsound_06min_version_202007XX_for_ulysses.map"
 GLOBALCLONE="/scratch-shared/edwin/data/pcrglobwb_input_ulysses_v202312XX/develop_edwin/lddsound_06min_version_202007XX_for_ulysses.map"
-CELLAREA_M2="/scratch-shared/edwin/data/pcrglobwb_input_ulysses_v202312XX/develop_edwin/lddsound_06min_version_202007XX_for_ulysses.map/cellarea.map"
+CELLAREA_M2="/scratch-shared/edwin/data/pcrglobwb_input_ulysses_v202312XX/develop_edwin/cellarea.map"
 GRDC_MAIN_FOLDER="/projects/0/dfguu/users/edwin/data/grdc_data_monthly_requested_on_2023013/txt_splitted/"
+
 
 JOB_NAME="mswep_1981-2019"
 PCRGLOBWB_OUTPUT_FOLDER="/scratch-shared/edwin/pcrglobwb_ulysses_2023-12-XX_rerun_on_202609/mswep/mswep_pgb_uly_rerun_two_lcs_sqrt/"
@@ -16,6 +18,7 @@ ANALYSIS_OUTPUT_FOLDER=${PCRGLOBWB_OUTPUT_FOLDER}/"analysis/grdc_analysis_1981-2
 STR_DATE="1981-01-31"
 END_DATE="2019-12-31"
 sbatch -J ${JOB_NAME} --export PCRGLOBWB_OUTPUT_FOLDER=${PCRGLOBWB_OUTPUT_FOLDER},DISCHARGE_FILENAME=${DISCHARGE_FILENAME},ANALYSIS_OUTPUT_FOLDER=${ANALYSIS_OUTPUT_FOLDER},STR_DATE=${STR_DATE},END_DATE=${END_DATE},LDD_FILE=${LDD_FILE},GLOBALCLONE=${GLOBALCLONE},CELLAREA_M2=${CELLAREA_M2},GRDC_MAIN_FOLDER=${GRDC_MAIN_FOLDER} ${SLURM_SCRIPT}
+
 
 #~ JOB_NAME="mswep_1981-2015"
 #~ PCRGLOBWB_OUTPUT_FOLDER="/scratch/depfg/sutan101/pcrglobwb_ulysses_2023-12-XX_rerun_on_202609XX/mswep/mswep_pgb_uly_rerun_two_lcs_sqrt_RERUN/begin_from_1981/global/netcdf/merged/"

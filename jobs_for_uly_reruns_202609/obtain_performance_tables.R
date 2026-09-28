@@ -6,11 +6,11 @@ era5land  <- get_performance_table("/scratch-shared/edwin/pcrglobwb_ulysses_2023
 mswep     <- get_performance_table("/scratch-shared/edwin/pcrglobwb_ulysses_2023-12-XX_rerun_on_202609/mswep/mswep_pgb_uly_rerun_two_lcs_sqrt/analysis/grdc_analysis_1981-2019/", 30)
 w5e5      <- get_performance_table("/scratch-shared/edwin/pcrglobwb_ulysses_2023-12-XX_rerun_on_202609/w5e5/w5e5_pgb_uly_rerun_two_lcs_sqrt/analysis/grdc_analysis_1981-2019/", 30)
 
-gdrc_cat_file <- "/home/edwin/gits/github/edwinkost/PCR-GLOBWB_monthly_GRDC_analysis/grdc_station_catal/grdc_stations/"
-ehsan_tb_file <- "/home/edwin/gits/github/edwinkost/PCR-GLOBWB_monthly_GRDC_analysis/ulysses_stations/"
+gdrc_cat_file <- "/home/edwin/gits/github/edwinkost/PCR-GLOBWB_monthly_GRDC_analysis/grdc_station_catal/grdc_stations/GRDC_Stations.csv"
+ehsan_tb_file <- "/home/edwin/gits/github/edwinkost/PCR-GLOBWB_monthly_GRDC_analysis/ulysses_stations/gauge_info_selected_1445.csv"
 
 gdrc_cat = read.table(gdrc_cat_file, header = T, sep =";")
-ehsan_tb = read.table(ehsan_tb_file, header = T, sep =";")
+ehsan_tb = read.table(ehsan_tb_file, header = T, sep =",")
 
 cdf_kge <- function (folder_of_analysis_summaries, number_of_sub_folders) {
 

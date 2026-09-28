@@ -17,7 +17,6 @@ ehsan_tb = read.table(ehsan_tb_file, header = T, sep =",")
 emearth_sel = emearth[which(emearth$id_from_grdc %in% ehsan_tb$grdc_id), ]
 plot(ecdf(emearth_sel$kge_2009), xlim = c(-1.0,1.0))
 
-
 era5land_sel = era5land[which(era5land$id_from_grdc %in% ehsan_tb$grdc_id), ]
 plot(ecdf(era5land_sel$kge_2009), xlim = c(-1.0,1.0))
 

@@ -25,6 +25,8 @@ plot(ecdf(kge_2009_cropped), xlim = c(-1.0,1.0))
 
 # id and kge only
 performance_table = data.frame(performance_table$id_from_grdc, performance_table$kge_2009)
+names(performance_table)[1] <- "id_from_grdc"
+names(performance_table)[2] <- "kge_2009"
 
 return(performance_table)
 

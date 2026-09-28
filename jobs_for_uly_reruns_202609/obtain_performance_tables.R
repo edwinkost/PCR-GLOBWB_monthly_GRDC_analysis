@@ -17,6 +17,7 @@ ehsan_tb = read.table(ehsan_tb_file, header = T, sep =",")
 emearth_sel = emearth[which(emearth$id_from_grdc %in% ehsan_tb$grdc_id), ]
 plot(ecdf(emearth_sel$kge_2009), xlim = c(-1.0,1.0))
 
+
 era5land_sel = era5land[which(era5land$id_from_grdc %in% ehsan_tb$grdc_id), ]
 plot(ecdf(era5land_sel$kge_2009), xlim = c(-1.0,1.0))
 
@@ -25,6 +26,11 @@ plot(ecdf(mswep_sel$kge_2009), xlim = c(-1.0,1.0))
 
 w5e5_sel = w5e5[which(w5e5$id_from_grdc %in% ehsan_tb$grdc_id), ]
 plot(ecdf(w5e5_sel$kge_2009), xlim = c(-1.0,1.0))
+
+# write table: grdc_id, wmo_region, kge_emearth, kge_era5land, kge_mswep, kge_w5e5
+
+
+
 
 
 # australia

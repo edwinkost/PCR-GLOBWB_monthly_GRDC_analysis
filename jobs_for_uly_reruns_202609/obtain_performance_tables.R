@@ -46,12 +46,16 @@ write.table(kge_table_from_all_runs, file = "kge_pcrglobwb_ulysses_202312_rerun_
 
 # test plot
 table = read.table("kge_pcrglobwb_ulysses_202312_rerun_on_202609_two_lcs_sqrt.csv", sep = ";", header = TRUE)
-wmo_chosen = 6
+wmo_chosen = 4
+length(table$wmo_reg[which(table$wmo_reg == wmo_chosen)])
 plot(ecdf(table$kge_emearth[which(table$wmo_reg == wmo_chosen)]), xlim = c(-0.4,1.0), ylim = c(0,1), col = "black")
+median(table$kge_emearth[which(table$wmo_reg == wmo_chosen)], na.rm = TRUE)
 lines(ecdf(table$kge_era5land[which(table$wmo_reg == wmo_chosen)]), col = "red")
+median(table$kge_era5land[which(table$wmo_reg == wmo_chosen)], na.rm = TRUE)
 lines(ecdf(table$kge_mswep[which(table$wmo_reg == wmo_chosen)]), col = "green")
+median(table$kge_mswep[which(table$wmo_reg == wmo_chosen)], na.rm = TRUE)
 lines(ecdf(table$kge_w5e5[which(table$wmo_reg == wmo_chosen)]), col = "blue")
-
+median(table$kge_w5e5[which(table$wmo_reg == wmo_chosen)], na.rm = TRUE)
 
 
 #~ # australia

@@ -3,7 +3,8 @@
 #SBATCH -n 48
 #~ #SBATCH -n 96
 
-#SBATCH -t 48:00:00
+#SBATCH -t 12:00:00
+#~ #SBATCH -t 48:00:00
 #~ #SBATCH -t 119:59:59
 #~ #SBATCH -t 0:59:59
 

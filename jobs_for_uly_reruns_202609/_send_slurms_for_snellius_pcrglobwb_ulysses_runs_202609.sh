@@ -20,9 +20,27 @@ GRDC_MAIN_FOLDER="/projects/0/dfguu/users/edwin/data/grdc_data_monthly_requested
 #~ sbatch -J ${JOB_NAME} --export PCRGLOBWB_OUTPUT_FOLDER=${PCRGLOBWB_OUTPUT_FOLDER},DISCHARGE_FILENAME=${DISCHARGE_FILENAME},ANALYSIS_OUTPUT_FOLDER=${ANALYSIS_OUTPUT_FOLDER},STR_DATE=${STR_DATE},END_DATE=${END_DATE},LDD_FILE=${LDD_FILE},GLOBALCLONE=${GLOBALCLONE},CELLAREA_M2=${CELLAREA_M2},GRDC_MAIN_FOLDER=${GRDC_MAIN_FOLDER} ${SLURM_SCRIPT}
 
 
-JOB_NAME="era5land_1981-2019"
-PCRGLOBWB_OUTPUT_FOLDER="/scratch-shared/edwin/pcrglobwb_ulysses_2023-12-XX_rerun_on_202609/era5land/era5land_pgb_uly_rerun_two_lcs_sqrt/"
-DISCHARGE_FILENAME="merged/discharge_monthAvg_output_1981_2022_era5land_pgb_uly_rerun_two_lcs_sqrt_ulysses_202312_rerun_on_202609.nc"
+#~ JOB_NAME="era5land_1981-2019"
+#~ PCRGLOBWB_OUTPUT_FOLDER="/scratch-shared/edwin/pcrglobwb_ulysses_2023-12-XX_rerun_on_202609/era5land/era5land_pgb_uly_rerun_two_lcs_sqrt/"
+#~ DISCHARGE_FILENAME="merged/discharge_monthAvg_output_1981_2022_era5land_pgb_uly_rerun_two_lcs_sqrt_ulysses_202312_rerun_on_202609.nc"
+#~ ANALYSIS_OUTPUT_FOLDER=${PCRGLOBWB_OUTPUT_FOLDER}/"analysis/grdc_analysis_1981-2019/"
+#~ STR_DATE="1981-01-31"
+#~ END_DATE="2019-12-31"
+#~ sbatch -J ${JOB_NAME} --export PCRGLOBWB_OUTPUT_FOLDER=${PCRGLOBWB_OUTPUT_FOLDER},DISCHARGE_FILENAME=${DISCHARGE_FILENAME},ANALYSIS_OUTPUT_FOLDER=${ANALYSIS_OUTPUT_FOLDER},STR_DATE=${STR_DATE},END_DATE=${END_DATE},LDD_FILE=${LDD_FILE},GLOBALCLONE=${GLOBALCLONE},CELLAREA_M2=${CELLAREA_M2},GRDC_MAIN_FOLDER=${GRDC_MAIN_FOLDER} ${SLURM_SCRIPT}
+
+
+JOB_NAME="emearth_1981-2019"
+PCRGLOBWB_OUTPUT_FOLDER="/scratch-shared/edwin/pcrglobwb_ulysses_2023-12-XX_rerun_on_202609/emearth/emearth_pgb_uly_rerun_two_lcs_sqrt/"
+DISCHARGE_FILENAME="merged/discharge_monthAvg_output_1981_2019_emearth_pgb_uly_rerun_two_lcs_sqrt_ulysses_202312_rerun_on_202609.nc"
+ANALYSIS_OUTPUT_FOLDER=${PCRGLOBWB_OUTPUT_FOLDER}/"analysis/grdc_analysis_1981-2019/"
+STR_DATE="1981-01-31"
+END_DATE="2019-12-31"
+sbatch -J ${JOB_NAME} --export PCRGLOBWB_OUTPUT_FOLDER=${PCRGLOBWB_OUTPUT_FOLDER},DISCHARGE_FILENAME=${DISCHARGE_FILENAME},ANALYSIS_OUTPUT_FOLDER=${ANALYSIS_OUTPUT_FOLDER},STR_DATE=${STR_DATE},END_DATE=${END_DATE},LDD_FILE=${LDD_FILE},GLOBALCLONE=${GLOBALCLONE},CELLAREA_M2=${CELLAREA_M2},GRDC_MAIN_FOLDER=${GRDC_MAIN_FOLDER} ${SLURM_SCRIPT}
+
+
+JOB_NAME="hydrowld_1981-2019"
+PCRGLOBWB_OUTPUT_FOLDER="/scratch-shared/edwin/pcrglobwb_ulysses_2023-12-XX_rerun_on_202609/hydrowld/hydrowld_pgb_uly_rerun_two_lcs_sqrt/"
+DISCHARGE_FILENAME="merged/discharge_monthAvg_output_1981_2019_hydrowld_pgb_uly_rerun_two_lcs_sqrt_ulysses_202312_rerun_on_202609.nc"
 ANALYSIS_OUTPUT_FOLDER=${PCRGLOBWB_OUTPUT_FOLDER}/"analysis/grdc_analysis_1981-2019/"
 STR_DATE="1981-01-31"
 END_DATE="2019-12-31"
